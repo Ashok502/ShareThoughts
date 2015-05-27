@@ -1,27 +1,38 @@
-<%- model_class = Product -%>
-<div class="page-header">
-    <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
+<section class="col-sm-9 col-md-9 col-lg-9 col-xs-12">
+    <h1><%= @product.title.html_safe %></h1>
+    <div class="ccrow">
+        <div class="col-sm-8 col-md-8 col-lg-8" style="height: 438px;">
+            <div class="leftColumn-flowers" style="height: 438px;">
+                <ul class='bxslider'>
+                    <% for image in @product.images %>
+                      <li><%= image_tag(image.image.url(:original),:width => 519, :height => 436, :style => 'border-radius: 3px;') %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xs-12">
 
-<dl class="dl-horizontal">
-    <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-    <dd><%= @product.title %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-    <dd><%= @product.description %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
-    <dd><%= @product.price %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:quantity) %>:</strong></dt>
-    <dd><%= @product.quantity %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:category_id) %>:</strong></dt>
-    <dd><%= @product.category_id %></dd>
-</dl>
-
-<%= link_to t('.back', :default => t("helpers.links.back")),
-  products_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-  edit_product_path(@product), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-  product_path(@product),
-  :method => 'delete',
-  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-  :class => 'btn btn-danger' %>
+            <div>
+                <p>Price: <%= number_to_currency(@product.price) %></p>
+                <div>
+                    <%= link_to "Buy Now","", :class => 'btn btn-success btn-xs' %>
+                    <%= link_to "Gift","" , :class => 'btn btn-warning btn-xs' %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br /><br /><br />
+    <b>Product Details:</b>
+    <br />
+    <p><%= @product.description.html_safe %></p>
+</section>
+<script>
+  $('.bxslider').bxSlider({
+      infiniteLoop: true,
+      auto: true,
+      pause: 3000,
+      useCSS: false,
+      autoHover: true,
+      controls: false
+  });
+</script>
