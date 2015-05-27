@@ -1,0 +1,3 @@
+$("#products").html('<%= escape_javascript render :partial => '/products/index' %>');
+$("#videos").html('<%= escape_javascript render :partial => '/videos/index' %>');
+$('.pagination a').attr('data-remote', 'true');
