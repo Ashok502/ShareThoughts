@@ -14,7 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /public/system
 /config/database.yml
-/nbproject/private/
+nbproject/
 /log/*.log
 /tmp
 /nbproject/private/

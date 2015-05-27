@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root :to => 'home#index'
   resources :products, :home, :categories, :banners, :videos
+  resources :messages do
+    collection do
+      get :inbox, :outbox
+    end
+  end
   devise_for :users
   
   get '/setting/:id' => 'home#setting', :as => :setting

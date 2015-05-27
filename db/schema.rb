@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527095737) do
+ActiveRecord::Schema.define(version: 20150527163859) do
 
   create_table "banners", force: true do |t|
     t.string   "name"
@@ -34,6 +34,21 @@ ActiveRecord::Schema.define(version: 20150527095737) do
     t.datetime "image_updated_at"
     t.string   "imageable_type"
     t.integer  "imageable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "receiver_id"
+    t.string   "subject"
+    t.boolean  "is_delete",             default: false
+    t.boolean  "is_read",               default: false
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
