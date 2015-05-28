@@ -12,6 +12,7 @@ gem 'paperclip'
 gem 'omniauth'
 gem "twitter-bootstrap-rails"
 gem 'nested_form'
+gem 'sendgrid'
 gem 'will_paginate'
 gem 'activemerchant', :require => 'active_merchant'
 gem 'authorize-net', '~> 1.5.1'
