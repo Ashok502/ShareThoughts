@@ -11,7 +11,7 @@
 var chatboxFocus = new Array();
 var chatBoxes = new Array();
 
-var ready = function () {
+var ready = function() {
 
     chatBox = {
         /**
@@ -21,7 +21,7 @@ var ready = function () {
          * @param conversation_id
          */
 
-        chatWith: function (conversation_id) {
+        chatWith: function(conversation_id) {
 
             chatBox.createChatBox(conversation_id);
             $("#chatbox_" + conversation_id + " .chatboxtextarea").focus();
@@ -32,7 +32,7 @@ var ready = function () {
          * @param conversation_id
          */
 
-        close: function (conversation_id) {
+        close: function(conversation_id) {
             $('#chatbox_' + conversation_id).css('display', 'none');
             chatBox.restructure();
         },
@@ -40,7 +40,7 @@ var ready = function () {
          * Plays a notification sound when a new chat message arrives
          */
 
-        notify: function () {
+        notify: function() {
             var audioplayer = $('#chatAudio')[0];
         },
         /**
@@ -49,7 +49,7 @@ var ready = function () {
          * neatly aligned on the page
          */
 
-        restructure: function () {
+        restructure: function() {
             align = 0;
             for (x in chatBoxes) {
                 chatbox_id = chatBoxes[x];
@@ -78,7 +78,7 @@ var ready = function () {
          * @param minimizeChatBox
          */
 
-        createChatBox: function (conversation_id, minimizeChatBox) {
+        createChatBox: function(conversation_id, minimizeChatBox) {
             if ($("#chatbox_" + conversation_id).length > 0) {
                 if ($("#chatbox_" + conversation_id).css('display') == 'none') {
                     $("#chatbox_" + conversation_id).css('display', 'block');
@@ -90,7 +90,7 @@ var ready = function () {
 
             $("body").append('<div id="chatbox_' + conversation_id + '" class="chatbox"></div>')
 
-            $.get("conversations/" + conversation_id, function (data) {
+            $.get("conversations/" + conversation_id, function(data) {
                 $('#chatbox_' + conversation_id).html(data);
                 $("#chatbox_" + conversation_id + " .chatboxcontent").scrollTop($("#chatbox_" + conversation_id + " .chatboxcontent")[0].scrollHeight);
             }, "html");
@@ -135,16 +135,16 @@ var ready = function () {
 
             chatboxFocus[conversation_id] = false;
 
-            $("#chatbox_" + conversation_id + " .chatboxtextarea").blur(function () {
+            $("#chatbox_" + conversation_id + " .chatboxtextarea").blur(function() {
                 chatboxFocus[conversation_id] = false;
                 $("#chatbox_" + conversation_id + " .chatboxtextarea").removeClass('chatboxtextareaselected');
-            }).focus(function () {
+            }).focus(function() {
                 chatboxFocus[conversation_id] = true;
                 $('#chatbox_' + conversation_id + ' .chatboxhead').removeClass('chatboxblink');
                 $("#chatbox_" + conversation_id + " .chatboxtextarea").addClass('chatboxtextareaselected');
             });
 
-            $("#chatbox_" + conversation_id).click(function () {
+            $("#chatbox_" + conversation_id).click(function() {
                 if ($('#chatbox_' + conversation_id + ' .chatboxcontent').css('display') != 'none') {
                     $("#chatbox_" + conversation_id + " .chatboxtextarea").focus();
                 }
@@ -162,7 +162,7 @@ var ready = function () {
          * @param conversation_id
          */
 
-        checkInputKey: function (event, chatboxtextarea, conversation_id) {
+        checkInputKey: function(event, chatboxtextarea, conversation_id) {
             if (event.keyCode == 13 && event.shiftKey == 0) {
                 event.preventDefault();
 
@@ -198,7 +198,7 @@ var ready = function () {
          * @param conversation_id
          */
 
-        toggleChatBoxGrowth: function (conversation_id) {
+        toggleChatBoxGrowth: function(conversation_id) {
             if ($('#chatbox_' + conversation_id + ' .chatboxcontent').css('display') == 'none') {
 
                 var minimizedChatBoxes = new Array();
@@ -253,7 +253,7 @@ var ready = function () {
      *
      */
 
-    jQuery.cookie = function (name, value, options) {
+    jQuery.cookie = function(name, value, options) {
         if (typeof value != 'undefined') { // name and value given, set cookie
             options = options || {};
             if (value === null) {

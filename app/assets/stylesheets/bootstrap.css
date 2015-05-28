@@ -1588,7 +1588,7 @@ pre code {
 }
 @media (min-width: 1200px) {
     .container {
-        width: 1170px;
+        width: 90%;
     }
 }
 .container-fluid {
@@ -4991,27 +4991,27 @@ a.thumbnail.active {
 }
 @-webkit-keyframes progress-bar-stripes {
     from {
-        background-position: 40px 0;
-    }
-    to {
-        background-position: 0 0;
-    }
+    background-position: 40px 0;
+}
+to {
+    background-position: 0 0;
+}
 }
 @-o-keyframes progress-bar-stripes {
     from {
-        background-position: 40px 0;
-    }
-    to {
-        background-position: 0 0;
-    }
+    background-position: 40px 0;
+}
+to {
+    background-position: 0 0;
+}
 }
 @keyframes progress-bar-stripes {
     from {
-        background-position: 40px 0;
-    }
-    to {
-        background-position: 0 0;
-    }
+    background-position: 40px 0;
+}
+to {
+    background-position: 0 0;
+}
 }
 .progress {
     height: 20px;

@@ -48,3 +48,16 @@ a.previous_page{
     border-radius: 2px;
     padding: 3px 6px 4px;
 }
+
+#online-users{
+    position: relative;
+    top: 3px;
+}
+
+#cart{
+    float: right;
+    left: 155px;
+    position: relative;
+    top: -10px;
+    width: 320px;
+}

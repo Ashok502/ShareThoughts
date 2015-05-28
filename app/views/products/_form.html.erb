@@ -3,50 +3,50 @@
   <%= render :partial => '/layouts/error_messages', :locals => {:resource => @product} %>
 
   <div class="control-group">
-      <%= f.label :title, :class => 'control-label' %>
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+    <%= error_span(@product[:title]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%= error_span(@product[:description]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :price, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :price, :class => 'form-control' %>
+    </div>
+    <%= error_span(@product[:price]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :quantity, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :quantity, :class => 'form-control' %>
+    </div>
+    <%= error_span(@product[:quantity]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :category_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :category_id, options_for_select([["Select",nil]]+Category.all.map{|a| [a.name, a.id]}, :selected => f.object.category_id),{}, :class => 'form-control' %>
+    </div>
+    <%= error_span(@product[:category_id]) %>
+  </div>
+  <div class="control-group">
+    Image
+    <%= f.fields_for :images do |builder| %>
       <div class="controls">
-          <%= f.text_field :title, :class => 'form-control' %>
+        <%= builder.file_field :image %> <%= builder.link_to_remove "Remove", 'data-nested-form-disable-first' => '' %>
       </div>
-      <%= error_span(@product[:title]) %>
+    <% end %>
   </div>
   <div class="control-group">
-      <%= f.label :description, :class => 'control-label' %>
-      <div class="controls">
-          <%= f.text_field :description, :class => 'form-control' %>
-      </div>
-      <%= error_span(@product[:description]) %>
-  </div>
-  <div class="control-group">
-      <%= f.label :price, :class => 'control-label' %>
-      <div class="controls">
-          <%= f.text_field :price, :class => 'form-control' %>
-      </div>
-      <%= error_span(@product[:price]) %>
-  </div>
-  <div class="control-group">
-      <%= f.label :quantity, :class => 'control-label' %>
-      <div class="controls">
-          <%= f.text_field :quantity, :class => 'form-control' %>
-      </div>
-      <%= error_span(@product[:quantity]) %>
-  </div>
-  <div class="control-group">
-      <%= f.label :category_id, :class => 'control-label' %>
-      <div class="controls">
-          <%= f.select :category_id, options_for_select([["Select",nil]]+Category.all.map{|a| [a.name, a.id]}, :selected => f.object.category_id),{}, :class => 'form-control' %>
-      </div>
-      <%= error_span(@product[:category_id]) %>
-  </div>
-  <div class="control-group">
-      Image
-      <%= f.fields_for :images do |builder| %>
-        <div class="controls">
-            <%= builder.file_field :image %> <%= builder.link_to_remove "Remove", 'data-nested-form-disable-first' => '' %>
-        </div>
-      <% end %>
-  </div>
-  <div class="control-group">
-      <div class="controls"><%= f.link_to_add "Add+", :images %></div>
+    <div class="controls"><%= f.link_to_add "Add+", :images %></div>
   </div>
 
 

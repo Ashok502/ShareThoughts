@@ -1,0 +1,2 @@
+$("#items_count").html(<%= current_cart.line_items.count %>);
+$("#total_cart").html('<%= escape_javascript render :partial => '/carts/total_cart' %>');

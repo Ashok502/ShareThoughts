@@ -8,28 +8,28 @@
     <p>TODO Display order confirmation details</p>
   <% else %>
     <table style="line-height: 40px;">
-        <tr>
-            <td>Name<br /><%= f.text_field :first_name %></td>
-            <td>Last Name<br /><%= f.text_field :last_name %></td>
-            <td>Address<br /><%= f.text_field :address %></td>
-            <td>State<br /><%= f.text_field :state %></td>
-            <td>Zip<br /><%= f.text_field :zip %></td>
-        </tr>
-        <tr>
-            <td>Card Type<br /><%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]], {} %></td>
-        </tr>
-        <tr>
-            <td>Card Number<br /><%= f.text_field :card_number, :placeholder => "Card Number", :class => "form-control required" %></td>
-        </tr>
-        <tr>
-            <td>Card Expiration Date<br /><%= f.date_select :card_expires_on, {:discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true, :order => [:month, :year]}, :style => 'width: 120px;' %></td>
-        </tr>
-        <tr>
-            <td>Card Verification Value<br /><%= f.text_field :card_verification, :placeholder => "3 digits for visa, master card & discover & 4 digits for AMEX", :class => "form-control required", :style => 'width: 120px;' %></td>
-        </tr>
+      <tr>
+        <td>Name<br /><%= f.text_field :first_name %></td>
+        <td>Last Name<br /><%= f.text_field :last_name %></td>
+        <td>Address<br /><%= f.text_field :address %></td>
+        <td>State<br /><%= f.text_field :state %></td>
+        <td>Zip<br /><%= f.text_field :zip %></td>
+      </tr>
+      <tr>
+        <td>Card Type<br /><%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]], {} %></td>
+      </tr>
+      <tr>
+        <td>Card Number<br /><%= f.text_field :card_number, :placeholder => "Card Number", :class => "form-control required" %></td>
+      </tr>
+      <tr>
+        <td>Card Expiration Date<br /><%= f.date_select :card_expires_on, {:discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true, :order => [:month, :year]}, :style => 'width: 120px;' %></td>
+      </tr>
+      <tr>
+        <td>Card Verification Value<br /><%= f.text_field :card_verification, :placeholder => "3 digits for visa, master card & discover & 4 digits for AMEX", :class => "form-control required", :style => 'width: 120px;' %></td>
+      </tr>
     </table>
   <% end %>
   <button type="submit" class="btn-enter" style="position: relative;top: 10px;">
-      <span>Continue <i class='fa fa-arrow-circle-right'></i></span>
+    <span>Continue <i class='fa fa-arrow-circle-right'></i></span>
   </button>
 <% end %>

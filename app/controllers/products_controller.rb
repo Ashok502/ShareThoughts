@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy, :add_to_cart]
-  before_filter :is_login?
+  before_filter :is_login?, :except => [:add_to_cart]
   respond_to :html
 
   def index
@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
     else
       @lineitem.update_attribute(:quantity, @lineitem.quantity + 1)
     end
-    redirect_to carts_path
+    respond_format
   end
 
   def edit

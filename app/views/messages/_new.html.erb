@@ -1,32 +1,32 @@
 <%- model_class = Message -%>
 <div class="page-header">
-    <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
+  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
 </div>
 <%= form_for @message, :remote => true do |f| %>
-<%= render :partial => '/layouts/error_messages', :locals => {:resource => @message} %>
+  <%= render :partial => '/layouts/error_messages', :locals => {:resource => @message} %>
   <div class="control-group">
-      <%= f.label :receiver_id, :class => 'control-label' %>
-      <div class="controls">
-          <%= f.select :receiver_id, options_for_select([["Select", nil]]+ User.where("id != #{current_user.id}").map{|a| [a.username, a.id]}, :selected => f.object.user_id),{}, :class => 'form-control' %>
-      </div>
+    <%= f.label :receiver_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :receiver_id, options_for_select([["Select", nil]]+ User.where("id != #{current_user.id}").map{|a| [a.username, a.id]}, :selected => f.object.user_id),{}, :class => 'form-control' %>
+    </div>
   </div>
   <div class="control-group">
-      <%= f.label :subject, :class => 'control-label' %>
-      <div class="controls">
-          <%= f.text_field :subject, :class => 'form-control' %>
-      </div>
+    <%= f.label :subject, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :subject, :class => 'form-control' %>
+    </div>
   </div>
   <div class="control-group">
-      <%= f.label :body, :class => 'control-label' %>
-      <div class="controls">
-          <%= f.text_area :body, :class => 'form-control' %>
-      </div>
+    <%= f.label :body, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :body, :class => 'form-control' %>
+    </div>
   </div>
   <div class="control-group">
-      <%= f.label :document, :class => 'control-label' %>
-      <div class="controls">
-          <%= f.file_field :document %>
-      </div>
+    <%= f.label :document, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :document %>
+    </div>
   </div>
   <%= f.submit "Message", :class => 'btn btn-primary' %>
 <% end %>

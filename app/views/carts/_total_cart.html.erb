@@ -1,0 +1,27 @@
+<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Unit Price</th>
+      <th>Full Price</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% for cart in current_cart.line_items %>
+      <tr>
+        <td><%= cart.product.title %></td>
+        <td><%= number_to_currency(cart.unit_price) %> X <%= cart.quantity%></td>
+        <td><%= number_to_currency(cart.full_price) %></td>
+        <td><%= link_to "<i class='fa fa-trash-o'></i>".html_safe, cart_path(cart), :method => :delete, :remote => true, :data => {:confirm => "Are you Sure?"} %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td></td>
+      <td>Total Price</td>
+      <td><%= number_to_currency(current_cart.total_price) %></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
