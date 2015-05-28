@@ -37,8 +37,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :uid
       t.text     :details
       t.string   :role, :default => 'user'
-
-
+      t.attachment :avatar
+      t.attachment :cover_photo
       t.timestamps
     end
 

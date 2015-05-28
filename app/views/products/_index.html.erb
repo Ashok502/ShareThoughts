@@ -13,7 +13,8 @@
                   <p><%= product.description %></p>
               </div>
               <div class="ratings">
-                  <p class="pull-right">15 reviews</p>
+                  <p class="pull-right"><%= product.quantity != 0 ? (link_to "add to cart", add_to_cart_product_path(product), :class => 'btn btn-success btn-xs') : (link_to "Sold", "", :class => 'btn btn-danger btn-xs') %> </p>
+                  <p>15 reviews</p>
                   <p>
                       <span class="glyphicon glyphicon-star"></span>
                       <span class="glyphicon glyphicon-star"></span>
@@ -27,6 +28,8 @@
                         <%= link_to t('.destroy', :default => t("helpers.links.destroy")), product_path(product), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger' %>
                     </p>
                   <% end %>
+
+
               </div>
           </div>
       </div>

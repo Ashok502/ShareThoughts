@@ -5,7 +5,7 @@
     <% for video in @videos %>
       <div class="col-sm-4 col-lg-4 col-md-4">
           <div class="thumbnail">
-              <%= video_tag(video.video.url, :width => 380, :height => 150) %>
+              <%= video_tag(video.video.url, :width => 295, :height => 150) %>
               <div class="caption">
                   <h4 class="pull-right"><%= number_to_currency(video.price) %></h4>
                   <h4><%= link_to video.name, video_path(video) %>

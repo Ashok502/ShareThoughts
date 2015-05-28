@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :add_to_cart]
   before_filter :is_login?
   respond_to :html
 
@@ -16,6 +16,19 @@ class ProductsController < ApplicationController
     @product = Product.new
     1.times {@product.images.build}
     respond_with(@product)
+  end
+  
+  def add_to_cart
+    @cart = current_cart
+    @cart.update_attribute(:created_at, Time.now)
+    session[:cart] = @cart.id
+    @lineitem = LineItem.find_by_cart_id_and_product_id(@cart.id,@product.id)
+    if !@lineitem.present?
+      LineItem.create(:product_id => @product.id, :quantity => 1, :unit_price => @product.price, :cart_id => @cart.id)
+    else
+      @lineitem.update_attribute(:quantity, @lineitem.quantity + 1)
+    end
+    redirect_to carts_path
   end
 
   def edit

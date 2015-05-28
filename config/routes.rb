@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
   root :to => 'home#index'
-  resources :products, :home, :categories, :banners, :videos
+  resources :carts, :home, :categories, :banners, :videos, :orders
+  
+  resources :products do
+    member do
+      get :add_to_cart
+    end
+  end
+  
+  resources :conversations do
+    resources :chats
+  end
+  
   resources :messages do
     collection do
       get :inbox, :outbox
@@ -14,6 +25,7 @@ Rails.application.routes.draw do
   get '/services' => 'home#services', :as => :services
   put '/update_setting/:id' => 'home#update_setting', :as => :update_setting
   put '/change_password/:id' => 'home#change_password', :as => :change_password
+  get '/order/express' => 'orders#express', :as => :pay
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

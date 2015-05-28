@@ -11,11 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527163859) do
+ActiveRecord::Schema.define(version: 20150528095632) do
 
   create_table "banners", force: true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carts", force: true do |t|
+    t.date     "purchased_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,6 +33,27 @@ ActiveRecord::Schema.define(version: 20150527163859) do
     t.datetime "updated_at"
   end
 
+  create_table "chats", force: true do |t|
+    t.text     "body"
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "chats", ["conversation_id"], name: "index_chats_on_conversation_id", using: :btree
+  add_index "chats", ["user_id"], name: "index_chats_on_user_id", using: :btree
+
+  create_table "conversations", force: true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conversations", ["recipient_id"], name: "index_conversations_on_recipient_id", using: :btree
+  add_index "conversations", ["sender_id"], name: "index_conversations_on_sender_id", using: :btree
+
   create_table "images", force: true do |t|
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -34,6 +61,15 @@ ActiveRecord::Schema.define(version: 20150527163859) do
     t.datetime "image_updated_at"
     t.string   "imageable_type"
     t.integer  "imageable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "line_items", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "cart_id"
+    t.decimal  "unit_price", precision: 10, scale: 0
+    t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,6 +89,32 @@ ActiveRecord::Schema.define(version: 20150527163859) do
     t.datetime "updated_at"
   end
 
+  create_table "orders", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "cart_id"
+    t.string   "ip_address"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "card_type"
+    t.date     "card_expires_on"
+    t.string   "action"
+    t.decimal  "amount",           precision: 10, scale: 0
+    t.boolean  "success"
+    t.string   "authorization"
+    t.string   "message"
+    t.text     "params"
+    t.string   "address"
+    t.string   "state"
+    t.string   "city"
+    t.string   "zip"
+    t.string   "phone"
+    t.string   "payment_type"
+    t.string   "express_token"
+    t.string   "express_payer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", force: true do |t|
     t.integer  "user_id"
     t.string   "title"
@@ -65,12 +127,12 @@ ActiveRecord::Schema.define(version: 20150527163859) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "",     null: false
-    t.string   "encrypted_password",     default: "",     null: false
+    t.string   "email",                    default: "",     null: false
+    t.string   "encrypted_password",       default: "",     null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,      null: false
+    t.integer  "sign_in_count",            default: 0,      null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -79,7 +141,7 @@ ActiveRecord::Schema.define(version: 20150527163859) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0,      null: false
+    t.integer  "failed_attempts",          default: 0,      null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "username"
@@ -88,7 +150,15 @@ ActiveRecord::Schema.define(version: 20150527163859) do
     t.string   "secret_token"
     t.string   "uid"
     t.text     "details"
-    t.string   "role",                   default: "user"
+    t.string   "role",                     default: "user"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "cover_photo_file_name"
+    t.string   "cover_photo_content_type"
+    t.integer  "cover_photo_file_size"
+    t.datetime "cover_photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,5 @@
+<ul style="padding: 0px;">
+    <% resource.errors.full_messages.each_with_index do |msg, index| %>
+      <li style="color: red;line-height: 20px;list-style: none;"><%= index+1 %>. <%= msg %></li>
+        <% end %>
+</ul>
