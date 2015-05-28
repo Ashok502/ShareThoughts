@@ -112,6 +112,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    pg (0.18.1)
     private_pub (1.0.3)
       faye
     quiet_assets (1.1.0)
@@ -161,6 +162,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    therubyracer-heroku (0.8.1.pre3)
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0)
@@ -202,6 +204,7 @@ DEPENDENCIES
   nested_form
   omniauth
   paperclip
+  pg
   private_pub
   quiet_assets
   rails (= 4.1.6)
@@ -209,6 +212,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   sendgrid
   spring
+  therubyracer-heroku (= 0.8.1.pre3)
   thin
   turbolinks
   twitter-bootstrap-rails
