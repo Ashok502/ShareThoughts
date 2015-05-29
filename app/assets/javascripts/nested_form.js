@@ -1,11 +1,11 @@
-(function($) {
-    window.NestedFormEvents = function() {
+(function ($) {
+    window.NestedFormEvents = function () {
         this.addFields = $.proxy(this.addFields, this);
         this.removeFields = $.proxy(this.removeFields, this);
     };
 
     NestedFormEvents.prototype = {
-        addFields: function(e) {
+        addFields: function (e) {
             // Setup
             var link = e.currentTarget;
             var assoc = $(link).data('association');                // Name of child
@@ -49,10 +49,10 @@
                     .trigger({type: 'nested:fieldAdded:' + assoc, field: field});
             return false;
         },
-        newId: function() {
+        newId: function () {
             return new Date().getTime();
         },
-        insertFields: function(content, assoc, link) {
+        insertFields: function (content, assoc, link) {
             var target = $(link).data('target');
             if (target) {
                 return $(content).appendTo($(target));
@@ -60,7 +60,7 @@
                 return $(content).insertBefore(link);
             }
         },
-        removeFields: function(e) {
+        removeFields: function (e) {
             var $link = $(e.currentTarget),
                     assoc = $link.data('association'); // Name of child to be removed
 
@@ -91,8 +91,8 @@
  * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
  *
  */
-(function($) {
-    $.fn.closestChild = function(selector) {
+(function ($) {
+    $.fn.closestChild = function (selector) {
         // breadth first search for the first matched node
         if (selector && selector != '') {
             var queue = [];
