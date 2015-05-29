@@ -14,7 +14,7 @@
               </div>
               <div class="ratings">
                   <p class="pull-right"><%= product.quantity != 0 ? (link_to "add to cart", add_to_cart_product_path(product), :remote => true, :class => 'btn btn-success btn-xs') : (link_to "Sold", "", :class => 'btn btn-danger btn-xs') %> </p>
-                  <p><%= rating_for product, "rating", disable_after_rate: true, space: true %></p><br />
+                  <p><%= rating_for product, "rating", disable_after_rate: true, cancel_place: 'right', space: true %></p><br />
                   <% if current_user && product.user_id == current_user.id %>
                     <p>
                         <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_product_path(product), :class => 'btn btn-default btn-xs' %> | 

@@ -20,6 +20,9 @@ class OrdersController < ApplicationController
     @order = Order.new(params_order.merge(user_id: current_user.id, cart_id: @cart.id))
     @type = @order.payment_type
     if @order.purchase && @order.success == true
+      for item in @cart.line_items
+        item.product.update_attribute(:quantity, item.product.quantity - item.quantity)
+      end
       @cart.update_attribute(:purchased_at, Date.today)
       session[:cart] = nil
       redirect_to orders_path
