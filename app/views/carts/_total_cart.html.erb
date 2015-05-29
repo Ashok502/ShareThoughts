@@ -1,4 +1,4 @@
-<div id="flash"><%= @success %><%= link_to "<i class='fa fa-times'></i>".html_safe, "#", id: 'close_msg', :style => 'float: right; top: -10px; position: relative;' %></div>
+<%= @success %>
 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
     <thead>
         <tr>
@@ -26,8 +26,3 @@
         </tr>
     </tbody>
 </table>
-<script>
-  $("#close_msg").click(function () {
-      $("#flash").hide();
-  })
-</script>

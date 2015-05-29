@@ -1,6 +1,6 @@
 <%- model_class = Category -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h3><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h3>
   <%= link_to t('.new', :default => t("helpers.links.new")), new_category_path, :class => 'btn btn-primary', :style => 'float: right; position: relative; top: -35px;' %>
 </div>
 <table class="table table-striped">

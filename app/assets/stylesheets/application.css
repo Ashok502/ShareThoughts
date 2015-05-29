@@ -52,14 +52,15 @@ a.previous_page{
 
 #online-users{
     position: relative;
-    top: 3px;
+    top: 9px;
+    width: 290px;
 }
 
 #cart{
     float: right;
     left: 155px;
     position: relative;
-    top: -10px;
+    top: 9px;
     width: 320px;
 }
 
