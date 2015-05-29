@@ -22,11 +22,19 @@ class ProductsController < ApplicationController
     @cart = current_cart
     @cart.update_attribute(:created_at, Time.now)
     session[:cart] = @cart.id
+    @cart_error = "<span id='success' style='color: red;'>Sorry we are currently out of stock.</span>".html_safe
+    @cart_success = "<span id='success' style='color: green;'>item successfully added to the Cart!</span>".html_safe
     @lineitem = LineItem.find_by_cart_id_and_product_id(@cart.id,@product.id)
     if !@lineitem.present?
+      @success = @cart_success
       LineItem.create(:product_id => @product.id, :quantity => 1, :unit_price => @product.price, :cart_id => @cart.id)
     else
-      @lineitem.update_attribute(:quantity, @lineitem.quantity + 1)
+      if @lineitem.quantity < @product.quantity
+        @success = @cart_success
+        @lineitem.update_attribute(:quantity, @lineitem.quantity + 1)
+      else
+        @success = @cart_error
+      end
     end
     respond_format
   end

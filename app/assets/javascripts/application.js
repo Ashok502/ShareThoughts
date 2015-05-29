@@ -17,21 +17,21 @@
 //= require private_pub
 //= require_tree .
 
-$(function() {
-    $('.pagination a').click(function() {
+$(function () {
+    $('.pagination a').click(function () {
         $.get(this.href, null, null, 'script');
         return false;
     });
 });
 
-$(document).ready(function() {
-    $('#selecctall').click(function(event) {  //on click
+$(document).ready(function () {
+    $('#selecctall').click(function (event) {  //on click
         if (this.checked) { // check select status
-            $('.check_all').each(function() { //loop through each checkbox
+            $('.check_all').each(function () { //loop through each checkbox
                 this.checked = true;  //select all checkboxes with class "checkbox1"              
             });
         } else {
-            $('.check_all').each(function() { //loop through each checkbox
+            $('.check_all').each(function () { //loop through each checkbox
                 this.checked = false; //deselect all checkboxes with class "checkbox1"                      
             });
         }

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   root :to => 'home#index'
-  resources :carts, :home, :categories, :banners, :videos, :orders
+  resources :carts, :home, :categories, :banners, :orders
   
   resources :products do
     member do

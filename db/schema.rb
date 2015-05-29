@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528095632) do
+ActiveRecord::Schema.define(version: 20150529060105) do
+
+  create_table "average_caches", force: true do |t|
+    t.integer  "rater_id"
+    t.integer  "rateable_id"
+    t.string   "rateable_type"
+    t.float    "avg",           limit: 24, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "banners", force: true do |t|
     t.string   "name"
@@ -115,6 +124,14 @@ ActiveRecord::Schema.define(version: 20150528095632) do
     t.datetime "updated_at"
   end
 
+  create_table "overall_averages", force: true do |t|
+    t.integer  "rateable_id"
+    t.string   "rateable_type"
+    t.float    "overall_avg",   limit: 24, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", force: true do |t|
     t.integer  "user_id"
     t.string   "title"
@@ -125,6 +142,31 @@ ActiveRecord::Schema.define(version: 20150528095632) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "rates", force: true do |t|
+    t.integer  "rater_id"
+    t.integer  "rateable_id"
+    t.string   "rateable_type"
+    t.float    "stars",         limit: 24, null: false
+    t.string   "dimension"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rates", ["rateable_id", "rateable_type"], name: "index_rates_on_rateable_id_and_rateable_type", using: :btree
+  add_index "rates", ["rater_id"], name: "index_rates_on_rater_id", using: :btree
+
+  create_table "rating_caches", force: true do |t|
+    t.integer  "cacheable_id"
+    t.string   "cacheable_type"
+    t.float    "avg",            limit: 24, null: false
+    t.integer  "qty",                       null: false
+    t.string   "dimension"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                    default: "",     null: false
@@ -167,18 +209,5 @@ ActiveRecord::Schema.define(version: 20150528095632) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
-
-  create_table "videos", force: true do |t|
-    t.string   "video_file_name"
-    t.string   "video_content_type"
-    t.integer  "video_file_size"
-    t.datetime "video_updated_at"
-    t.integer  "user_id"
-    t.string   "name"
-    t.text     "description"
-    t.decimal  "price",              precision: 10, scale: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end

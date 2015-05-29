@@ -1,42 +1,42 @@
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to "Share Thoughts", '/', :class => 'navbar-brand' %>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><%= current_user ? (link_to "Categories", categories_path) : '' %></li>
-        <li><%= current_user ? (link_to "Products", products_path) : (link_to "About", "") %></li>
-        <li><%= current_user ? (link_to "Videos", videos_path) : (link_to "Services", "") %></li>
-        <li><%= current_user ? (link_to "Orders", "") : (link_to "Contact", "") %></li>
-      </ul>
-      <% if current_user %>
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;">Messages<b class="caret"></b></a>
-            <ul class="dropdown-menu">                                    
-              <li><%= link_to "Inbox", inbox_messages_path %></li>
-              <li><%= link_to "Outbox", outbox_messages_path %></li>
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <%= link_to "Share Thoughts", '/', :class => 'navbar-brand' %>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><%= current_user ? (link_to "Categories", categories_path) : (link_to "About Us", "") %></li>
+                <li><%= current_user ? (link_to "Products", products_path) : (link_to "Services", "") %></li>
+                <li><%= current_user ? (link_to "Orders", orders_path) : (link_to "Contact", "") %></li>
             </ul>
-          </li>
-        </ul>
-      <% end %>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Cart (<span id='items_count'>#{current_cart.line_items.count}</span>)".html_safe, carts_path %></li>
-        <li><%= current_user ? (link_to "My Account", setting_path(current_user)) : (link_to "Sign In", new_user_session_path)%></li>
-        <li><%= current_user ? (link_to "Sign Out", destroy_user_session_path, :method => :delete) : (link_to "Sign Up", new_user_registration_path)%></li>
-      </ul>
+            <% if current_user %>
+              <ul class="nav navbar-nav">
+                  <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;">Messages<b class="caret"></b></a>
+                      <ul class="dropdown-menu">                                    
+                          <li><%= link_to "Inbox", inbox_messages_path %></li>
+                          <li><%= link_to "Outbox", outbox_messages_path %></li>
+                      </ul>
+                  </li>
+              </ul>
+            <% end %>
+            <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "Cart (<span id='items_count'>#{current_cart.line_items.count}</span>)".html_safe, carts_path %></li>
+
+                <li><%= current_user ? (link_to "#{image_tag(current_user.avatar.url(:original), :width => 25, :height => 20, :style => 'border: 1px solid gray; border-radius: 5px;')} My Account".html_safe, setting_path(current_user)) : (link_to "Sign In", new_user_session_path)%></li>
+                <li><%= current_user ? (link_to "Sign Out", destroy_user_session_path, :method => :delete) : (link_to "Sign Up", new_user_registration_path)%></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-    <!-- /.navbar-collapse -->
-  </div>
-  <!-- /.container -->
+    <!-- /.container -->
 </nav>

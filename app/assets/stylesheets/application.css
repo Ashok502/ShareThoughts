@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap
  */
 
 #pagination{
@@ -60,4 +61,10 @@ a.previous_page{
     position: relative;
     top: -10px;
     width: 320px;
+}
+
+#success{
+    font-weight: bold;
+    position: relative;
+    top: -10px;
 }

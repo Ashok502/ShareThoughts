@@ -30,7 +30,7 @@ body {
     white-space: nowrap;
 }
 
-.thumbnail img {
+#product_img img {
     width: 100%;
 }
 

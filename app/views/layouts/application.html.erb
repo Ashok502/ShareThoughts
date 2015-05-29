@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
-    <title><%= content_for?(:title) ? yield(:title) : "ShareThoughts" %></title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
-  </head>
-  <body>
-    <%= render :partial => '/layouts/header' %>
-    <div class="container">
-      <div class="row">
-        <%= bootstrap_flash %>
-        <div class="col-md-9">
-          <%= yield %>
-        </div>
-        <div class="col-md-2">
-          <div id="cart"></div>
-        </div>
-        <% if current_user %>
-          <% @users = User.where.not("id = ?",current_user.id).order("created_at DESC") %>
-          <div class="col-md-2" id='online-users'>
-            <div class="page-header">
-              <h3>Online Users</h3>
-            </div>
-            <div class="list-group">
-              <% @users.each_with_index do |user, index| %>
-                <%= link_to user.username, "#", class: "list-group-item start-conversation", "data-sid" => current_user.id, "data-rip" => user.id, :style => 'color: green;font-weight: bold;' %>
-                <% end %>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' %>
+        <title><%= content_for?(:title) ? yield(:title) : "ShareThoughts" %></title>
+        <%= csrf_meta_tags %>
+        <%= stylesheet_link_tag "application", :media => "all" %>
+        <%= javascript_include_tag "application" %>
+    </head>
+    <body>
+        <%= render :partial => '/layouts/header' %>
+        <div class="container">
+            <div class="row">
+                <%= bootstrap_flash %>
+                <div class="col-md-9">
+                    <%= yield %>
+                </div>
+                <div class="col-md-2">
+                    <div id="cart"></div>
+                </div>
+                <% if current_user %>
+                  <% @users = User.where.not("id = ?",current_user.id).order("created_at DESC") %>
+                  <div class="col-md-2" id='online-users'>
+                      <div class="page-header">
+                          <h3>Online Users</h3>
+                      </div>
+                      <div class="list-group">
+                          <% @users.each_with_index do |user, index| %>
+                            <%= link_to "#{image_tag(user.avatar.url(:original), :width => 25, :height => 20)}".html_safe + " " + user.username, "#", class: "list-group-item start-conversation", "data-sid" => current_user.id, "data-rip" => user.id, :style => 'color: green;font-weight: bold;' %>
+                            <% end %>
+                        </div>
+                    </div>
+                  <% end %>
               </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </body>
+          </div>
+      </body>
   </html>

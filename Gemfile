@@ -17,7 +17,7 @@ gem 'will_paginate'
 gem 'activemerchant', :require => 'active_merchant'
 gem 'authorize-net', '~> 1.5.1'
 gem 'braintree'
-gem 'faye'
+gem 'ratyrate'
 gem 'private_pub'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

@@ -1,35 +1,28 @@
 <div id="pagination">
-  <%= will_paginate @products, :page_links => false, :param_name => 'product_page', :previous_label => "PREV", :next_label => "NEXT" %>
+    <%= will_paginate @products, :page_links => false, :param_name => 'product_page', :previous_label => "PREV", :next_label => "NEXT" %>
 </div>
 <div class="row">
-  <% for product in @products %>
-    <div class="col-sm-4 col-lg-4 col-md-4">
-      <div class="thumbnail">
-        <%= link_to image_tag(product.images.first.image.url(:original), :width => 320, :height => 150), product_path(product) %>
-        <div class="caption">
-          <h4 class="pull-right"><%= number_to_currency(product.price) %></h4>
-          <h4><%= link_to product.title, product_path(product) %>
-          </h4>
-          <p><%= product.description %></p>
-        </div>
-        <div class="ratings">
-          <p class="pull-right"><%= product.quantity != 0 ? (link_to "add to cart", add_to_cart_product_path(product), :remote => true, :class => 'btn btn-success btn-xs') : (link_to "Sold", "", :class => 'btn btn-danger btn-xs') %> </p>
-          <p>15 reviews</p>
-          <p>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-            <span class="glyphicon glyphicon-star"></span>
-          </p>
-          <% if current_user && product.user_id == current_user.id %>
-            <p>
-              <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_product_path(product), :class => 'btn btn-default btn-xs' %> | 
-              <%= link_to t('.destroy', :default => t("helpers.links.destroy")), product_path(product), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger' %>
-            </p>
-          <% end %>
-        </div>
+    <% for product in @products %>
+      <div class="col-sm-4 col-lg-4 col-md-4">
+          <div class="thumbnail">
+              <span id="product_img"><%= link_to image_tag(product.images.first.image.url(:original), :width => 320, :height => 150), product_path(product) %></span>
+              <div class="caption">
+                  <h4 class="pull-right"><%= number_to_currency(product.price) %></h4>
+                  <h4><%= link_to product.title, product_path(product) %>
+                  </h4>
+                  <p><%= product.description %></p>
+              </div>
+              <div class="ratings">
+                  <p class="pull-right"><%= product.quantity != 0 ? (link_to "add to cart", add_to_cart_product_path(product), :remote => true, :class => 'btn btn-success btn-xs') : (link_to "Sold", "", :class => 'btn btn-danger btn-xs') %> </p>
+                  <p><%= rating_for product, "rating", disable_after_rate: true, space: true %></p><br />
+                  <% if current_user && product.user_id == current_user.id %>
+                    <p>
+                        <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_product_path(product), :class => 'btn btn-default btn-xs' %> | 
+                        <%= link_to t('.destroy', :default => t("helpers.links.destroy")), product_path(product), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger' %>
+                    </p>
+                  <% end %>
+              </div>
+          </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 </div>

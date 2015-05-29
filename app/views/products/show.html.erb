@@ -1,38 +1,34 @@
 <section class="col-sm-9 col-md-9 col-lg-9 col-xs-12">
-  <h1><%= @product.title.html_safe %></h1>
-  <div class="ccrow">
-    <div class="col-sm-8 col-md-8 col-lg-8" style="height: 438px;">
-      <div class="leftColumn-flowers" style="height: 438px;">
-        <ul class='bxslider'>
-          <% for image in @product.images %>
-            <li><%= image_tag(image.image.url(:original),:width => 519, :height => 436, :style => 'border-radius: 3px;') %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-12">
-
-      <div>
-        <p>Price: <%= number_to_currency(@product.price) %></p>
-        <div>
-          <%= link_to "Buy Now","", :class => 'btn btn-success btn-xs' %>
-          <%= link_to "Gift","" , :class => 'btn btn-warning btn-xs' %>
+    <h1><%= @product.title.html_safe %></h1>
+    <div class="ccrow">
+        <div class="col-sm-8 col-md-8 col-lg-8" style="height: 438px;">
+            <div class="leftColumn-flowers" style="height: 438px;">
+                <ul class='bxslider'>
+                    <% for image in @product.images %>
+                      <li><%= image_tag(image.image.url(:original),:width => 519, :height => 436, :style => 'border-radius: 3px;') %></li>
+                    <% end %>
+                </ul>
+            </div>
         </div>
-      </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xs-12">
+
+            <div>
+                <p>Price: <%= number_to_currency(@product.price) %></p>
+            </div>
+        </div>
     </div>
-  </div>
-  <br /><br /><br />
-  <b>Product Details:</b>
-  <br />
-  <p><%= @product.description.html_safe %></p>
+    <br /><br /><br />
+    <b>Product Details:</b>
+    <br />
+    <p><%= @product.description.html_safe %></p>
 </section>
 <script>
   $('.bxslider').bxSlider({
-    infiniteLoop: true,
-    auto: true,
-    pause: 3000,
-    useCSS: false,
-    autoHover: true,
-    controls: false
+      infiniteLoop: true,
+      auto: true,
+      pause: 3000,
+      useCSS: false,
+      autoHover: true,
+      controls: false
   });
 </script>
