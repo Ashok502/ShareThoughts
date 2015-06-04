@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
       unless current_user
         session[:ss] = request.fullpath
         flash[:error] = "Please Login!!"
-        redirect_to '/'
+        redirect_to '/users/sign_in'
       end
     end
     
