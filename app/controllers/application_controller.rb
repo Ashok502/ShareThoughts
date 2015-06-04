@@ -10,9 +10,16 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email,:password, :password_confirmation,:username) }
     end
+    
+    def after_sign_in_path_for(resource_or_scope)
+      if resource_or_scope.is_a?(User)
+        session[:ss].present? ? session[:ss] : root_path
+      end
+    end
   
     def is_login?
       unless current_user
+        session[:ss] = request.fullpath
         flash[:error] = "Please Login!!"
         redirect_to '/'
       end

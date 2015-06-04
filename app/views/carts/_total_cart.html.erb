@@ -4,6 +4,7 @@
         <tr>
             <th>Product Name</th>
             <th>Unit Price</th>
+            <th>Qty</th>
             <th>Full Price</th>
             <th></th>
         </tr>
@@ -13,12 +14,19 @@
         <% for cart in current_cart.line_items %>
           <tr>
               <td><%= cart.product.title %></td>
-              <td><%= number_to_currency(cart.unit_price) %> X <%= cart.quantity%></td>
+              <td><%= number_to_currency(cart.unit_price) %> </td>
+              <td>
+                  <%= form_for cart, :url => cart_path(cart), :remote => true do |f| %>
+                    <%= f.text_field :quantity, :style => 'width: 40px; text-align: center;' %>
+                    <%= f.submit "Add", :class => 'btn btn-primary btn-xs' %>
+                  <% end %>
+              </td>
               <td><%= number_to_currency(cart.full_price) %></td>
               <td><%= link_to "<i class='fa fa-trash-o'></i>".html_safe, cart_path(cart), :method => :delete, :remote => true, :data => {:confirm => "Are you Sure?"} %></td>
           </tr>
         <% end %>
         <tr>
+            <td></td>
             <td></td>
             <td>Total Price</td>
             <td><%= number_to_currency(current_cart.total_price) %></td>

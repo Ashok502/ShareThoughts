@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  
+  before_filter :is_login?
   def express
     response = EXPRESS_GATEWAY.setup_purchase(current_cart.total_price * 100,
       :ip => request.remote_ip,
