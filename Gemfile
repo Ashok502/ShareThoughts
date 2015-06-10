@@ -13,12 +13,14 @@ gem 'omniauth'
 gem "twitter-bootstrap-rails"
 gem 'nested_form'
 gem 'sendgrid'
+gem 'mailtrap'
 gem 'will_paginate'
 gem 'activemerchant', :require => 'active_merchant'
 gem 'authorize-net', '~> 1.5.1'
 gem 'braintree'
 gem 'ratyrate'
 gem 'private_pub'
+gem "twocheckout"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

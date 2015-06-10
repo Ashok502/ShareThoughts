@@ -69,3 +69,11 @@ a.previous_page{
     position: relative;
     top: -10px;
 }
+
+#header-logo{
+    position: relative;
+    border-radius: 33px;
+    background-color: white;
+    font-size: 14px;
+    padding: 15px;
+}
