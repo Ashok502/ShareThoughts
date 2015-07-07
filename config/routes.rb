@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+
+  get '/party/:id', :to => "rooms#party", :as => :party
+
   post '/rate' => 'rater#create', :as => 'rate'
   root :to => 'home#index'
-  resources :carts, :home, :categories, :banners, :orders
+  resources :carts, :home, :categories, :banners, :orders, :rooms
   
   resources :products do
     member do

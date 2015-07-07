@@ -5,7 +5,7 @@
             <div class="leftColumn-flowers" style="height: 438px;">
                 <ul class='bxslider'>
                     <% for image in @product.images %>
-                      <li><%= image_tag(image.image.url(:original),:width => 519, :height => 436, :style => 'border-radius: 3px;') %></li>
+                      <li><%= link_to image_tag(image.image.url(:original),:width => 519, :height => 436, :style => 'border-radius: 3px;'), "#{image.image.url}", :class => 'fancybox' %></li>
                     <% end %>
                 </ul>
             </div>
@@ -31,4 +31,6 @@
       autoHover: true,
       controls: false
   });
+
+  $(".fancybox").fancybox();
 </script>

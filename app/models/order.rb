@@ -34,11 +34,7 @@ class Order < ActiveRecord::Base
   def process_payment
     ActiveMerchant::Billing::Base.mode = :test
     response = process_purchase
-    if response.success?
-      self.update_attributes(:action => "purchase", :amount => price, :success => response.success?, :authorization => response.authorization, :message => response.message, :params => response.params)
-    else
-      self.update_attributes(:action => "purchase", :amount => price, :success => response.success?, :authorization => response.authorization, :message => response.message, :params => response.params)
-    end
+    self.update_attributes(:action => "purchase", :amount => price, :success => response.success?, :authorization => response.authorization, :message => response.message, :params => response.params)
   end
   
   private
