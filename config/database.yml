@@ -13,3 +13,11 @@ production:
   password: root
   pool: 5
   timeout: 5000
+  
+test:
+  adapter: mysql2
+  database: share_thought_development
+  username: root
+  password: root
+  pool: 5
+  timeout: 5000

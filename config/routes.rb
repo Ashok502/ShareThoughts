@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :widgets
+
   get '/party/:id', :to => "rooms#party", :as => :party
 
   post '/rate' => 'rater#create', :as => 'rate'
