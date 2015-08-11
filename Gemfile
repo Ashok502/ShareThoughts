@@ -23,6 +23,7 @@ gem 'private_pub'
 gem "twocheckout"
 gem "opentok"
 gem 'fancybox-rails'
+gem "jquery-fileupload-rails"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

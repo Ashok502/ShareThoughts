@@ -4,4 +4,11 @@ class Image < ActiveRecord::Base
   validates_attachment_content_type :image,
     :content_type => [ 'image/jpeg','image/jpg', 'image/png', 'image/gif','image/bmp', 'image/x-png', 'image/pjpeg' ]
   belongs_to :imageable, :polymorphic => true
+
+  def to_file_upload
+    {
+      "url" => image.url,
+      "thumbnail_url" => image.url(:large)
+    }
+  end
 end

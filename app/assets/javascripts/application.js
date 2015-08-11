@@ -16,6 +16,7 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require private_pub
+//= require jquery-fileupload
 //= require_tree .
 
 $(function () {
@@ -29,11 +30,11 @@ $(document).ready(function () {
     $('#selecctall').click(function (event) {  //on click
         if (this.checked) { // check select status
             $('.check_all').each(function () { //loop through each checkbox
-                this.checked = true;  //select all checkboxes with class "checkbox1"              
+                this.checked = true;  //select all checkboxes with class "checkbox1"
             });
         } else {
             $('.check_all').each(function () { //loop through each checkbox
-                this.checked = false; //deselect all checkboxes with class "checkbox1"                      
+                this.checked = false; //deselect all checkboxes with class "checkbox1"
             });
         }
     });

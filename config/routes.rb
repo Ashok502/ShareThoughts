@@ -7,24 +7,25 @@ Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
   root :to => 'home#index'
   resources :carts, :home, :categories, :banners, :orders, :rooms
-  
+
   resources :products do
+    resources :images
     member do
       get :add_to_cart
     end
   end
-  
+
   resources :conversations do
     resources :chats
   end
-  
+
   resources :messages do
     collection do
       get :inbox, :outbox
     end
   end
   devise_for :users
-  
+
   get '/setting/:id' => 'home#setting', :as => :setting
   get '/about_us' => 'home#about_us', :as => :about_us
   get '/contact_us' => 'home#contact_us', :as => :contact_us

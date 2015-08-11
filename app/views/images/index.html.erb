@@ -1,0 +1,28 @@
+<p><%= link_to "Images", new_product_image_path(@product), :class => 'btn btn-warning btn-xs', :class => 'btn btn-warning btn-xs' %></p>
+<div class="row">
+    <% for image in @images %>
+      <div class="col-sm-4 col-lg-3 col-md-4">
+          <div class="thumbnail">
+              <span id="product_img"><%= link_to image_tag(image.image.url(:original), :height => 185, :width => 185, :id => "image_#{image.id}"), "#{image.image.url}", :title => "#{image.image_file_name}", :class => 'fancybox', :rel => "gallery1"  %></span>
+              <div class="ratings">
+                  <% if current_user %>
+                    <hr />
+                     <p><%= link_to image_tag("rotate.jpeg"), "#", :class => "item-3", :id => "rotate_#{image.id}", :title => 'rotate' %></p>
+                    <p class="pull-right" style="position: relative;top: -30px;"><%= link_to t('.destroy', :default => t("helpers.links.destroy")), product_image_path(image.imageable,image), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger' %></p>
+
+                  <% end %>
+              </div>
+          </div>
+      </div>
+      <script>
+                  var value_<%= image.id %> = 0
+                  $("#rotate_<%= image.id %>").click(function(){
+                    value_<%= image.id %> +=90;
+                    $("#image_<%= image.id %>").rotate({ animateTo:value_<%= image.id %>})
+                  });
+                </script>
+    <% end %>
+</div>
+<script>
+  $(".fancybox").fancybox();
+</script>
