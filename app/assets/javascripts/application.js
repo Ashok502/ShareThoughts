@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require private_pub
 //= require jquery-fileupload
+//= require jquery.remotipart
 //= require_tree .
 
 $(function () {
