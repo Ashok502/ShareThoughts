@@ -32,7 +32,7 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-  
+
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -44,7 +44,7 @@ Rails.application.configure do
     :authentication       => 'plain',
     :enable_starttls_auto => true
   }
-  
+
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test
     brain_tree = {

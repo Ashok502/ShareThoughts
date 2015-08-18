@@ -14,7 +14,6 @@
 //= require fancybox
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require turbolinks
 //= require private_pub
 //= require jquery-fileupload
 //= require jquery.remotipart
