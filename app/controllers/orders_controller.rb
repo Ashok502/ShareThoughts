@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     )
     redirect_to EXPRESS_GATEWAY.redirect_url_for(response.token)
   end
-  
+
   def new
     @type = params[:pay]
     @order = Order.new(:express_token => params[:token])
@@ -30,11 +30,11 @@ class OrdersController < ApplicationController
       render :action => "new"
     end
   end
-  
+
   def index
-    @orders = current_user.orders
+    @orders = current_user.orders.where("success = true")
   end
-  
+
   private
   def params_order
     params.require(:order).permit!

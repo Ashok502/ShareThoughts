@@ -23,6 +23,7 @@ gem 'ratyrate'
 gem 'private_pub'
 gem "twocheckout"
 gem "opentok"
+gem "payeezy"
 gem 'fancybox-rails'
 gem "jquery-fileupload-rails"
 # Use SCSS for stylesheets

@@ -138,6 +138,9 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    payeezy (1.1.0)
+      json (~> 1.8.1)
+      rest-client (~> 1.4)
     pg (0.18.1)
     private_pub (1.0.3)
       faye
@@ -263,6 +266,7 @@ DEPENDENCIES
   omniauth
   opentok
   paperclip
+  payeezy
   pg
   private_pub
   quiet_assets
