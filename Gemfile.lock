@@ -14,6 +14,8 @@ GEM
       activesupport (= 4.1.6)
       builder (~> 3.1)
       erubis (~> 2.7.0)
+    active_merchant_ccavenue (0.1.0)
+      activemerchant (>= 1.7.3)
     activemerchant (1.47.0)
       activesupport (>= 3.2.14, < 5.0.0)
       builder (>= 2.1.2, < 4.0.0)
@@ -138,9 +140,6 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
-    payeezy (1.1.0)
-      json (~> 1.8.1)
-      rest-client (~> 1.4)
     pg (0.18.1)
     private_pub (1.0.3)
       faye
@@ -251,6 +250,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_merchant_ccavenue
   activemerchant
   authorize-net (~> 1.5.1)
   braintree
@@ -266,7 +266,6 @@ DEPENDENCIES
   omniauth
   opentok
   paperclip
-  payeezy
   pg
   private_pub
   quiet_assets
