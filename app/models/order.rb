@@ -34,11 +34,7 @@ class Order < ActiveRecord::Base
   def process_payment
     ActiveMerchant::Billing::Base.mode = :test
     response = process_purchase
-    if self.payment_type == 'payeezy'
-      self.update_attributes(:action => "purchase", :amount => price, :success => response['validation_status'] == 'success' ? true : false, :authorization => response['transaction_id'], :message => response['transaction_status'], :params => response)
-    else
-      self.update_attributes(:action => "purchase", :amount => price, :success => response.success?, :authorization => response.authorization, :message => response.message, :params => response.params)
-    end
+    self.update_attributes(:action => "purchase", :amount => price, :success => response.success?, :authorization => response.authorization, :message => response.message, :params => response.params)
   end
 
   private
@@ -52,8 +48,12 @@ class Order < ActiveRecord::Base
       EXPRESS_GATEWAY.purchase(price*100, express_purchase_options)
     elsif self.payment_type == 'authorize'
       AUTHORIZE_GATEWAY.purchase(price*100, credit_card, standard_purchase_options)
-    elsif self.payment_type == 'payeezy'
-      PAYEEZY.transact(:authorize, primary_tx_payload)
+    elsif self.payment_type == 'first_data'
+      FIRSTDATA.purchase(price*100, credit_card, standard_purchase_options)
+    elsif self.payment_type == 'raven'
+      RAVEN.purchase(price*100, credit_card, standard_purchase_options)
+    elsif self.payment_type == 'stripe'
+      STRIPE.purchase(price*100, credit_card, standard_purchase_options)
     end
   end
 
@@ -97,22 +97,5 @@ class Order < ActiveRecord::Base
       :first_name => first_name,
       :last_name => last_name
     )
-  end
-
-  def primary_tx_payload
-    credit_card = {}
-    payload = {}
-    payload[:merchant_ref] = 'BLUEARCH PAYMENTS LLC'
-    payload[:amount]= price
-    payload[:currency_code]= 'USD'
-    payload[:method]= 'credit_card'
-
-    credit_card[:type] = card_type
-    credit_card[:cardholder_name] = first_name
-    credit_card[:card_number] = card_number
-    credit_card[:exp_date] = '1020'
-    credit_card[:cvv] = card_verification
-    payload[:credit_card] = credit_card
-    payload
   end
 end

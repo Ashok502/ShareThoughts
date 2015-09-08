@@ -83,7 +83,7 @@ Rails.application.configure do
     :authentication       => 'plain',
     :enable_starttls_auto => true
   }
-  
+
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test
     brain_tree = {
@@ -100,10 +100,19 @@ Rails.application.configure do
       :login => '9Z7PR6t7juz',
       :password=> '72W5yEA58fa5r5FQ'
     }
+    first_data = {
+      :login => 'AJ8888-05',
+      :password => 'vjfuo37yfmul845f3mupj428k5rc05rw'
+    }
+    stripe = {
+      :login => 'sk_test_oM7iN40sWyN7NvRmuTCay6kv'
+    }
     ::BRIANTREE_GATEWAY = ActiveMerchant::Billing::BraintreeGateway.new(brain_tree)
     ::PAYPAL_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(paypal)
     ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal)
     ::AUTHORIZE_GATEWAY = ActiveMerchant::Billing::AuthorizeNetGateway.new(authorize)
+    ::FIRSTDATA = ActiveMerchant::Billing::FirstdataE4Gateway.new(first_data)
+    ::STRIPE = ActiveMerchant::Billing::StripeGateway.new(stripe)
   end
 
   # Do not dump schema after migrations.

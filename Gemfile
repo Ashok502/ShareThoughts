@@ -17,13 +17,13 @@ gem 'mailtrap'
 gem 'will_paginate'
 gem 'remotipart'
 gem 'activemerchant', :require => 'active_merchant'
+gem 'active_merchant_ccavenue'
 gem 'authorize-net', '~> 1.5.1'
 gem 'braintree'
 gem 'ratyrate'
 gem 'private_pub'
 gem "twocheckout"
 gem "opentok"
-gem "payeezy"
 gem 'fancybox-rails'
 gem "jquery-fileupload-rails"
 # Use SCSS for stylesheets

@@ -10,5 +10,9 @@
     <%= link_to "Pay via Authorize", new_order_path(:pay => 'authorize'), :class => 'btn btn-xs btn-danger' %> |
     <%= link_to "Pay via Paypal", pay_path, :class => 'btn btn-xs btn-warning' %>
     |
-    <%= link_to "Pay via Payeezy", new_order_path(:pay => 'payeezy'), :class => 'btn btn-xs btn-danger' %>
+    <%= link_to "Pay via Raven", new_order_path(:pay => 'raven'), :class => 'btn btn-xs btn-danger' %>
+    |
+    <%= link_to "Pay via Stripe", new_order_path(:pay => 'stripe'), :class => 'btn btn-xs btn-danger' %>
+    |
+    <%= link_to "Pay via First Data", new_order_path(:pay => 'first_data'), :class => 'btn btn-xs btn-danger' %>
 </div>
