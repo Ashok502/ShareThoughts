@@ -18,6 +18,7 @@ gem 'will_paginate'
 gem 'remotipart'
 gem 'activemerchant', :require => 'active_merchant'
 gem 'braintree'
+gem 'cloudinary'
 gem 'ratyrate'
 gem 'private_pub'
 gem "opentok"
