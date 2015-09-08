@@ -1,0 +1,27 @@
+0000000000000000000000000000000000000000 afae21154b7e54dde52a420da4965f6b0ddd57ad rails <rockingrails@gmail.com> 1432729266 +0530	commit (initial): first commit
+afae21154b7e54dde52a420da4965f6b0ddd57ad 00f2b2d89457c7d9328b706e4d32fdd24d1e140a rails <rockingrails@gmail.com> 1432729960 +0530	commit: first commit
+00f2b2d89457c7d9328b706e4d32fdd24d1e140a d713f243b24ac1cca45a69d93aa800f071244829 rails <rockingrails@gmail.com> 1432733458 +0530	commit: first commit
+d713f243b24ac1cca45a69d93aa800f071244829 75ca4e6da3563c5e69549d35bb8ad816ea8dfcf9 rails <rockingrails@gmail.com> 1432787289 +0530	pull origin master: Fast-forward
+75ca4e6da3563c5e69549d35bb8ad816ea8dfcf9 d94699444ca8d132a3a2d35ab0e16aa0acc64f31 rails <rockingrails@gmail.com> 1432812703 +0530	commit: small changes
+d94699444ca8d132a3a2d35ab0e16aa0acc64f31 53de855fdfff5121c5fd3f2cbb64238cfa591b4a rails <rockingrails@gmail.com> 1432812855 +0530	commit: small changes
+53de855fdfff5121c5fd3f2cbb64238cfa591b4a 66334d4f2617feb32e34ffaabc245a51d1fb215e rails <rockingrails@gmail.com> 1432813600 +0530	commit: small changes
+66334d4f2617feb32e34ffaabc245a51d1fb215e b08da08d425ecf3871aa310f7c7cb1fac7a832f4 rails <rockingrails@gmail.com> 1432814274 +0530	commit: small changes
+b08da08d425ecf3871aa310f7c7cb1fac7a832f4 6105dabe334733934e834f9fa85f8fb6bad98a2f rails <rockingrails@gmail.com> 1432815780 +0530	commit: small changes
+6105dabe334733934e834f9fa85f8fb6bad98a2f bd19d452a1c94a6314c53020f71ea72f664969e4 rails <rockingrails@gmail.com> 1432878501 +0530	pull origin master: Fast-forward
+bd19d452a1c94a6314c53020f71ea72f664969e4 fe22cd1181c9dbb912dd4420bd819194e821e7c7 rails <rockingrails@gmail.com> 1432892659 +0530	commit: implimented the star rating for products
+fe22cd1181c9dbb912dd4420bd819194e821e7c7 14409eee67f006a9bb9c24374c10d23599b85786 rails <rockingrails@gmail.com> 1432894464 +0530	commit: implimented the star rating for products
+14409eee67f006a9bb9c24374c10d23599b85786 4f118cbd2fd773bcb26fd8956b135d612aacabd6 rails <rockingrails@gmail.com> 1432899576 +0530	commit: implimented the star rating for products
+4f118cbd2fd773bcb26fd8956b135d612aacabd6 875d83e10a65289fca122d2f5302bbf253eca81f rails <rockingrails@gmail.com> 1432901854 +0530	commit: implimented the star rating for products
+875d83e10a65289fca122d2f5302bbf253eca81f aeea97271c492ed2f88e30237011d1b6791f2f0f ashok kumar <ashokkmr098@gmail.com> 1433411319 +0530	commit: small changes
+aeea97271c492ed2f88e30237011d1b6791f2f0f 86cb9d0bd95261774b8102983ec48fc799a371c2 ashok kumar <ashokkmr098@gmail.com> 1433411336 +0530	pull origin master: Merge made by the 'recursive' strategy.
+86cb9d0bd95261774b8102983ec48fc799a371c2 e97d31fd7ba2711395788f4c2d996e86ebb6904e ashok kumar <ashokkmr098@gmail.com> 1433411404 +0530	commit: small changes
+e97d31fd7ba2711395788f4c2d996e86ebb6904e 845bebc5af043dad2934a19b29cbe79bf5f3dab4 rails <rails@rails.com> 1433935755 +0530	commit: small changes
+845bebc5af043dad2934a19b29cbe79bf5f3dab4 7779d2e9bc6a6252c68af31ba37c72fd20ed9ecd rails <rails@rails.com> 1436252275 +0530	commit: fancybox gem
+7779d2e9bc6a6252c68af31ba37c72fd20ed9ecd 875c70121131530c6f9cc82da7588e87b526da1c rails <rails@rails.com> 1436860460 +0530	commit: small changes
+875c70121131530c6f9cc82da7588e87b526da1c 2f1320e709ee35c7c00e2353a5de2ca41c99e508 rails <rails@rails.com> 1441012925 +0530	pull origin master: Fast-forward
+2f1320e709ee35c7c00e2353a5de2ca41c99e508 7fbf657e98bfaca00c9e7039acdebe0f9a46d6e8 rails <rails@rails.com> 1441013299 +0530	commit: small changes
+7fbf657e98bfaca00c9e7039acdebe0f9a46d6e8 0b45ada590ef0c9f3e18a73260a3e0a49885e3b8 rails <rails@rails.com> 1441013759 +0530	commit: small changes
+0b45ada590ef0c9f3e18a73260a3e0a49885e3b8 6414691625916d25de7df4fd2e7f9d42531f914c rails <rails@rails.com> 1441090405 +0530	commit: Upgrading to Cedar-14
+6414691625916d25de7df4fd2e7f9d42531f914c b2716f0f14430ccfdbfd042657fdbe9a048133d6 rails <rails@rails.com> 1441090536 +0530	commit: Upgrading to Cedar-14
+b2716f0f14430ccfdbfd042657fdbe9a048133d6 b359bce9f51867552f138bb0d0f9b4455fa6b476 rails <rails@rails.com> 1441701629 +0530	pull origin master: Merge made by the 'recursive' strategy.
+b359bce9f51867552f138bb0d0f9b4455fa6b476 29f76f13bfefeadd53817736c8e4456a9fa6c235 rails <rails@rails.com> 1441702153 +0530	commit: small changes
