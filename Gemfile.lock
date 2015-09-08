@@ -14,8 +14,6 @@ GEM
       activesupport (= 4.1.6)
       builder (~> 3.1)
       erubis (~> 2.7.0)
-    active_merchant_ccavenue (0.1.0)
-      activemerchant (>= 1.7.3)
     activemerchant (1.47.0)
       activesupport (>= 3.2.14, < 5.0.0)
       builder (>= 2.1.2, < 4.0.0)
@@ -36,8 +34,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     arel (5.0.1.20140414130214)
-    authorize-net (1.5.2)
-      nokogiri (~> 1.4)
     bcrypt (3.1.10)
     braintree (2.43.0)
       builder (>= 2.0.0)
@@ -63,8 +59,6 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
-    domain_name (0.5.24)
-      unf (>= 0.0.5, < 1.0.0)
     em-http-request (1.1.2)
       addressable (>= 2.3.4)
       cookiejar
@@ -93,8 +87,6 @@ GEM
     hike (1.2.3)
     hoe (3.13.1)
       rake (>= 0.8, < 11.0)
-    http-cookie (1.0.2)
-      domain_name (~> 0.5)
     http_parser.rb (0.6.0)
     httparty (0.13.5)
       json (~> 1.8)
@@ -124,7 +116,6 @@ GEM
     multi_xml (0.5.5)
     mysql2 (0.3.18)
     nested_form (0.3.2)
-    netrc (0.10.3)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     omniauth (1.2.2)
@@ -170,10 +161,6 @@ GEM
     remotipart (1.2.1)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
-    rest-client (1.8.0)
-      http-cookie (>= 1.0.2, < 2.0)
-      mime-types (>= 1.16, < 3.0)
-      netrc (~> 0.7)
     rspec-core (3.2.2)
       rspec-support (~> 3.2.0)
     rspec-expectations (3.2.0)
@@ -229,16 +216,11 @@ GEM
       execjs (~> 2.2)
       rails (~> 4.1)
       railties (~> 4.1)
-    twocheckout (0.4.0)
-      rest-client (~> 1.4)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    unf (0.1.4)
-      unf_ext
-    unf_ext (0.0.7.1)
     warden (1.2.3)
       rack (>= 1.0)
     websocket-driver (0.5.4)
@@ -250,9 +232,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_merchant_ccavenue
   activemerchant
-  authorize-net (~> 1.5.1)
   braintree
   coffee-rails (~> 4.0.0)
   devise
@@ -281,6 +261,5 @@ DEPENDENCIES
   thin
   turbolinks
   twitter-bootstrap-rails
-  twocheckout
   uglifier (>= 1.3.0)
   will_paginate
