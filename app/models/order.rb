@@ -50,10 +50,10 @@ class Order < ActiveRecord::Base
       AUTHORIZE_GATEWAY.purchase(price*100, credit_card, standard_purchase_options)
     elsif self.payment_type == 'first_data'
       FIRSTDATA.purchase(price*100, credit_card, standard_purchase_options)
-    elsif self.payment_type == 'raven'
-      RAVEN.purchase(price*100, credit_card, standard_purchase_options)
     elsif self.payment_type == 'stripe'
       STRIPE.purchase(price*100, credit_card, standard_purchase_options)
+    elsif self.payment_type == 'hdfc'
+      HDFC.purchase(price*100, credit_card, standard_purchase_options)
     end
   end
 

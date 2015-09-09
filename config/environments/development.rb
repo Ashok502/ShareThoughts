@@ -68,11 +68,16 @@ Rails.application.configure do
     stripe = {
       :login => 'sk_test_oM7iN40sWyN7NvRmuTCay6kv'
     }
-    ::BRIANTREE_GATEWAY = ActiveMerchant::Billing::BraintreeGateway.new(brain_tree)
-    ::PAYPAL_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(paypal)
-    ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal)
+    hdfc = {
+      :login => '9001012',
+      :password => 'password1'
+    }
     ::AUTHORIZE_GATEWAY = ActiveMerchant::Billing::AuthorizeNetGateway.new(authorize)
+    ::BRIANTREE_GATEWAY = ActiveMerchant::Billing::BraintreeGateway.new(brain_tree)
+    ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal)
     ::FIRSTDATA = ActiveMerchant::Billing::FirstdataE4Gateway.new(first_data)
+    ::HDFC = ActiveMerchant::Billing::HdfcGateway.new(hdfc)
+    ::PAYPAL_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(paypal)
     ::STRIPE = ActiveMerchant::Billing::StripeGateway.new(stripe)
   end
 

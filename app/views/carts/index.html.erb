@@ -4,15 +4,17 @@
     </h3>
 </div>
 <div id='total_cart'><%= render :partial => '/carts/total_cart' %></div>
-<div style="float: right;">
-    <%= link_to "Pay via BrianTree", new_order_path(:pay => 'brian_tree'), :class => 'btn btn-xs btn-default' %> |
-    <%= link_to "Pay via Checkout", new_order_path(:pay => 'checkout'), :class => 'btn btn-xs btn-success' %> |
-    <%= link_to "Pay via Authorize", new_order_path(:pay => 'authorize'), :class => 'btn btn-xs btn-danger' %> |
-    <%= link_to "Pay via Paypal", pay_path, :class => 'btn btn-xs btn-warning' %>
-    |
-    <%= link_to "Pay via Raven", new_order_path(:pay => 'raven'), :class => 'btn btn-xs btn-danger' %>
-    |
-    <%= link_to "Pay via Stripe", new_order_path(:pay => 'stripe'), :class => 'btn btn-xs btn-danger' %>
-    |
-    <%= link_to "Pay via First Data", new_order_path(:pay => 'first_data'), :class => 'btn btn-xs btn-danger' %>
-</div>
+<% if current_cart.line_items.present? %>
+    <div style="float: right;">
+        <%= link_to "Pay via BrianTree", new_order_path(:pay => 'brian_tree'), :class => 'btn btn-xs btn-default' %> |
+        <%= link_to "Pay via Checkout", new_order_path(:pay => 'checkout'), :class => 'btn btn-xs btn-success' %> |
+        <%= link_to "Pay via Authorize", new_order_path(:pay => 'authorize'), :class => 'btn btn-xs btn-danger' %> |
+        <%= link_to "Pay via Paypal", pay_path, :class => 'btn btn-xs btn-warning' %>
+        |
+        <%= link_to "Pay via Stripe", new_order_path(:pay => 'stripe'), :class => 'btn btn-xs btn-danger' %>
+        |
+        <%= link_to "Pay via First Data", new_order_path(:pay => 'first_data'), :class => 'btn btn-xs btn-danger' %>
+        |
+        <%= link_to "Pay via HDFC", new_order_path(:pay => 'hdfc'), :class => 'btn btn-xs btn-danger' %>
+    </div>
+<% end %>
