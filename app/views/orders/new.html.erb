@@ -1,3 +1,5 @@
+<h3>Payment Confirmation</h3>
+<hr />
 <%= form_for @order do |f| %>
   <%= f.hidden_field :payment_type, :value => @type %>
   <%= render :partial => '/layouts/error_messages', :locals => {:resource => @order} %>
@@ -7,42 +9,42 @@
     <p>Name: <%=h @order.first_name %> <%=h @order.last_name %></p>
     <p>TODO Display order confirmation details</p>
   <% else %>
-    <div class="control-group">
-        <%= f.label :first_name, :class => 'control-label' %>
-        <div class="controls">
+  <table id="order-table">
+    <tr>
+        <td><%= f.label :first_name, :class => 'control-label' %></td>
+        <td>
             <%= f.text_field :first_name, :class => 'form-control' %>
-        </div>
-    </div>
-    <div class="control-group">
-        <%= f.label :last_name, :class => 'control-label' %>
-        <div class="controls">
+        </td>
+
+        <td><%= f.label :last_name, :class => 'control-label' %></td>
+        <td>
             <%= f.text_field :last_name, :class => 'form-control' %>
-        </div>
-    </div>
-    <div class="control-group">
-        <%= f.label :card_type, :class => 'control-label' %>
-        <div class="controls">
+        </td>
+    </tr>
+    <tr>
+        <td><%= f.label :card_type, :class => 'control-label' %></td>
+        <td>
             <%= f.select :card_type, options_for_select([["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]], :selected => f.object.card_type),{}, :class => 'form-control' %>
-        </div>
-    </div>
-    <div class="control-group">
-        <%= f.label :card_number, :class => 'control-label' %>
-        <div class="controls">
+        </td>
+
+        <td><%= f.label :card_number, :class => 'control-label' %></td>
+        <td>
             <%= f.text_field :card_number, :class => 'form-control' %>
-        </div>
-    </div>
-    <div class="control-group">
-        <%= f.label :card_expires_on, :class => 'control-label' %>
-        <div class="controls">
-            <%= f.date_select :card_expires_on, {:discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true, :order => [:month, :year]}, :style => 'width: 120px;', :class => 'form-control' %>
-        </div>
-    </div>
-    <div class="control-group">
-        <%= f.label :card_verification, :class => 'control-label' %>
-        <div class="controls">
+        </td>
+    </tr>
+    <tr>
+        <td><%= f.label :card_expires_on, :class => 'control-label' %></td>
+        <td>
+            <%= f.date_select :card_expires_on, {:discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true, :order => [:month, :year]}, :id => 'cvv_date' %>
+        </td>
+
+        <td><%= f.label :card_verification, :class => 'control-label' %></td>
+        <td>
             <%= f.text_field :card_verification, :style => 'width: 120px;', :class => 'form-control' %>
-        </div>
-    </div>
+        </td>
+    </tr>
+    </table>
   <% end %>
+  <hr />
   <%= f.submit "Continue", :class => 'btn btn-primary' %>
 <% end %>

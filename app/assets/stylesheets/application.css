@@ -67,6 +67,18 @@ a.previous_page{
     width: 396px;
 }
 
+#cvv_date{
+    width: 120px;
+    background-color: white;
+    border: 1px solid gainsboro;
+    padding: 5px;
+}
+
+#order-table{
+    width: 100%;
+    line-height: 50px;
+}
+
 #success{
     font-weight: bold;
     position: relative;
