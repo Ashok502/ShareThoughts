@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/payu-india/payuindia.git
+  revision: 8e8fce86d6149daf34596bdfb99fede372b844ac
+  specs:
+    payuindia (0.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -39,6 +45,7 @@ GEM
     braintree (2.43.0)
       builder (>= 2.0.0)
     builder (3.2.2)
+    ccavenue (0.0.2)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cloudinary (1.1.0)
@@ -250,6 +257,7 @@ PLATFORMS
 DEPENDENCIES
   activemerchant
   braintree
+  ccavenue
   cloudinary
   coffee-rails (~> 4.0.0)
   devise
@@ -263,6 +271,7 @@ DEPENDENCIES
   omniauth
   opentok
   paperclip
+  payuindia!
   pg
   private_pub
   quiet_assets

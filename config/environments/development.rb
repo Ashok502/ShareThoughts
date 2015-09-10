@@ -72,12 +72,12 @@ Rails.application.configure do
       :login => '9001012',
       :password => 'password1'
     }
-    ::AUTHORIZE_GATEWAY = ActiveMerchant::Billing::AuthorizeNetGateway.new(authorize)
-    ::BRIANTREE_GATEWAY = ActiveMerchant::Billing::BraintreeGateway.new(brain_tree)
-    ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal)
+    ::AUTHORIZE = ActiveMerchant::Billing::AuthorizeNetGateway.new(authorize)
+    ::BRIANTREE = ActiveMerchant::Billing::BraintreeGateway.new(brain_tree)
+    ::EXPRESS = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal)
     ::FIRSTDATA = ActiveMerchant::Billing::FirstdataE4Gateway.new(first_data)
     ::HDFC = ActiveMerchant::Billing::HdfcGateway.new(hdfc)
-    ::PAYPAL_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(paypal)
+    ::PAYPAL = ActiveMerchant::Billing::PaypalGateway.new(paypal)
     ::STRIPE = ActiveMerchant::Billing::StripeGateway.new(stripe)
   end
 
@@ -85,3 +85,5 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 end
 SITE= 'http://localhost:3000'
+PAYKEY = 'gtKFFx'
+PAYSALT = 'eCwWELxi'

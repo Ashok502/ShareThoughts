@@ -92,3 +92,18 @@ a.previous_page{
     font-size: 14px;
     padding: 15px;
 }
+
+#payment-form{
+  width: 110px;
+}
+
+#payment-form input[type=submit]{
+  background-color: #d9534f;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 0.7;
+  padding: 5px 9px;
+  text-align: center;
+}

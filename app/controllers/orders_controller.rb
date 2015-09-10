@@ -35,6 +35,12 @@ class OrdersController < ApplicationController
     @orders = current_user.orders.where("success = true")
   end
 
+  def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+    redirect_to orders_path
+  end
+
   private
   def params_order
     params.require(:order).permit!

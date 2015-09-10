@@ -41,13 +41,13 @@ class Order < ActiveRecord::Base
 
   def process_purchase
     if self.payment_type == 'brian_tree'
-      BRIANTREE_GATEWAY.purchase(price*100, credit_card, standard_purchase_options)
+      BRIANTREE.purchase(price*100, credit_card, standard_purchase_options)
     elsif self.payment_type == 'checkout'
-      PAYPAL_GATEWAY.purchase(price*100, credit_card, standard_purchase_options)
+      PAYPAL.purchase(price*100, credit_card, standard_purchase_options)
     elsif self.payment_type == 'paypal_express'
-      EXPRESS_GATEWAY.purchase(price*100, express_purchase_options)
+      EXPRESS.purchase(price*100, express_purchase_options)
     elsif self.payment_type == 'authorize'
-      AUTHORIZE_GATEWAY.purchase(price*100, credit_card, standard_purchase_options)
+      AUTHORIZE.purchase(price*100, credit_card, standard_purchase_options)
     elsif self.payment_type == 'first_data'
       FIRSTDATA.purchase(price*100, credit_card, standard_purchase_options)
     elsif self.payment_type == 'stripe'

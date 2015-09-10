@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   put '/update_setting/:id' => 'home#update_setting', :as => :update_setting
   put '/change_password/:id' => 'home#change_password', :as => :change_password
   get '/order/express' => 'orders#express', :as => :pay
+  post '/payu_callback'=>'carts#payu_return'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

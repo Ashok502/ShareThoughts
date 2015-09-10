@@ -8,6 +8,7 @@
             <th>Payment Type</th>
             <th>Authorization</th>
             <th>Price</th>
+            <th>Actions</th>
         </tr>
     </thead>
 
@@ -18,6 +19,10 @@
               <td><%= order.payment_type %></td>
               <td><%= order.authorization %></td>
               <td><%= number_to_currency(order.cart.total_price) %></td>
+              <td>
+                <%= link_to "<i class='fa fa-search'></i>".html_safe, order_path(order) %>
+                <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, order_path(order), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))} %>
+              </td>
           </tr>
         <% end %>
     </tbody>
