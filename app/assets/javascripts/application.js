@@ -15,10 +15,10 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require private_pub
-//= require jquery-fileupload
 //= require jquery.remotipart
 //= require jquery.jcrop
 //= require papercrop
+//= require dropzone
 //= require_tree .
 
 $(function () {

@@ -26,7 +26,7 @@ gem 'private_pub'
 gem 'papercrop'
 gem "opentok"
 gem 'fancybox-rails'
-gem "jquery-fileupload-rails"
+gem 'dropzonejs-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
