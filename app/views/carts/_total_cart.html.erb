@@ -17,7 +17,7 @@
               <td><%= number_to_currency(cart.unit_price) %> </td>
               <td>
                   <%= form_for cart, :url => cart_path(cart), :remote => true do |f| %>
-                    <%= f.text_field :quantity, :style => 'width: 40px; text-align: center;' %>
+                    <%= f.number_field :quantity, :min => 1 %>
                     <%= f.submit "Add", :class => 'btn btn-primary btn-xs' %>
                   <% end %>
               </td>

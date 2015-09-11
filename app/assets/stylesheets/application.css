@@ -56,15 +56,14 @@ a.previous_page{
 #online-users{
     position: relative;
     top: 9px;
-    width: 285px;
+    width: 380px;
 }
 
 #cart{
     float: right;
-    left: 195px;
+    left: 85px;
     position: relative;
-    top: 9px;
-    width: 396px;
+    width: 435px;
 }
 
 #cvv_date{
@@ -109,4 +108,11 @@ a.previous_page{
   position: relative;
   text-align: center;
   top: 24px;
+}
+
+#line_item_quantity{
+  border: 1px solid lightblue;
+  border-radius: 4px;
+  text-align: center;
+  width: 50px;
 }
