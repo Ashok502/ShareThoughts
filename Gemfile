@@ -23,6 +23,7 @@ gem 'ccavenue'
 gem 'cloudinary'
 gem 'ratyrate'
 gem 'private_pub'
+gem 'papercrop'
 gem "opentok"
 gem 'fancybox-rails'
 gem "jquery-fileupload-rails"

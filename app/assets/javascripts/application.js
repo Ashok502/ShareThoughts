@@ -17,6 +17,8 @@
 //= require private_pub
 //= require jquery-fileupload
 //= require jquery.remotipart
+//= require jquery.jcrop
+//= require papercrop
 //= require_tree .
 
 $(function () {

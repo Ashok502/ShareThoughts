@@ -16,6 +16,7 @@
  *= require jquery.fileupload
  *= require jquery.fileupload-ui
  *= require bootstrap
+ *= require jquery.jcrop
  */
 
 #pagination{

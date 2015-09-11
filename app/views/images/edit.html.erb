@@ -1,0 +1,9 @@
+<%= form_for @image, :url => product_image_path(@product, @image), :method => 'PUT' do |f| %>
+<h3>Crop Image
+  <%= f.submit 'Save', :class => 'btn btn-xs btn-success', :style => "float: right;" %>
+</h3>
+<hr />
+  <%= f.cropbox :image, :width => 300 %>
+  <%= f.crop_preview :image, :width => 150 %>
+  <br />
+<% end %>

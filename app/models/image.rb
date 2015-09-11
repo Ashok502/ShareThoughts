@@ -4,6 +4,7 @@ class Image < ActiveRecord::Base
   validates_attachment_content_type :image,
     :content_type => [ 'image/jpeg','image/jpg', 'image/png', 'image/gif','image/bmp', 'image/x-png', 'image/pjpeg' ]
   belongs_to :imageable, :polymorphic => true
+  crop_attached_file :image
 
   def to_file_upload
     {
