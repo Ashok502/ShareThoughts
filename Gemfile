@@ -64,3 +64,4 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem "rspec-rails", :group => [:development, :test]
+gem 'dotenv-rails', :group => [:development, :test]

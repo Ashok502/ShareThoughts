@@ -87,29 +87,29 @@ Rails.application.configure do
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test
     brain_tree = {
-      :merchant_id => 'ty26pmqwrmcb372f',
-      :public_key  => 'k2knfyvpfz77fjy8',
-      :private_key => '1080c2771aa54e19a59bcbf5ac41d93a'
+      :merchant_id => ENV['BMID'],
+      :public_key  => ENV['BPUKEY'],
+      :private_key => ENV['BPRKEY']
     }
     paypal = {
-      :login => "seller_1229899173_biz_api1.railscasts.com",
-      :password => "FXWU58S7KXFC6HBE",
-      :signature => "AGjv6SW.mTiKxtkm6L9DcSUCUgePAUDQ3L-kTdszkPG8mRfjaRZDYtSu"
+      :login => ENV['PLOGIN'],
+      :password => ENV['PPWD'],
+      :signature => ENV['PSIGN']
     }
     authorize = {
-      :login => '9Z7PR6t7juz',
-      :password=> '72W5yEA58fa5r5FQ'
+      :login => ENV['ALOGIN'],
+      :password=> ENV['APWD']
     }
     first_data = {
-      :login => 'AJ8888-05',
-      :password => 'vjfuo37yfmul845f3mupj428k5rc05rw'
+      :login => ENV['PAYLOGIN'],
+      :password => ENV['PAYPWD']
     }
     stripe = {
-      :login => 'sk_test_oM7iN40sWyN7NvRmuTCay6kv'
+      :login => ENV['SLOGIN']
     }
     hdfc = {
-      :login => '9001012',
-      :password => 'password1'
+      :login => ENV['HLOGIN'],
+      :password => ENV['HPWD']
     }
     ::AUTHORIZE = ActiveMerchant::Billing::AuthorizeNetGateway.new(authorize)
     ::BRIANTREE = ActiveMerchant::Billing::BraintreeGateway.new(brain_tree)
@@ -124,5 +124,3 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 end
 SITE = "http://share-thoughts.herokuapp.com/"
-PAYKEY = 'gtKFFx'
-PAYSALT = 'eCwWELxi'

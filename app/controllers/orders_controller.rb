@@ -11,14 +11,12 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @type = params[:pay]
     @order = Order.new(:express_token => params[:token])
   end
 
   def create
     @cart = current_cart
     @order = Order.new(params_order.merge(user_id: current_user.id, cart_id: @cart.id))
-    @type = @order.payment_type
     if @order.purchase && @order.success == true
       for item in @cart.line_items
         item.product.update_attribute(:quantity, item.product.quantity - item.quantity)

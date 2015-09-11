@@ -3,6 +3,7 @@ class Order < ActiveRecord::Base
   belongs_to :user
   serialize :params
   attr_accessor :card_number, :card_verification
+  validates :payment_type, :presence => true
   validate :validate_card, :on => :create
 
   def purchase
@@ -48,7 +49,7 @@ class Order < ActiveRecord::Base
       EXPRESS.purchase(price*100, express_purchase_options)
     elsif self.payment_type == 'authorize'
       AUTHORIZE.purchase(price*100, credit_card, standard_purchase_options)
-    elsif self.payment_type == 'first_data'
+    elsif self.payment_type == 'payeezy'
       FIRSTDATA.purchase(price*100, credit_card, standard_purchase_options)
     elsif self.payment_type == 'stripe'
       STRIPE.purchase(price*100, credit_card, standard_purchase_options)
