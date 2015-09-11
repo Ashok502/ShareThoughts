@@ -1,13 +1,14 @@
 class OrdersController < ApplicationController
   before_filter :is_login?
   def express
-    response = EXPRESS_GATEWAY.setup_purchase(current_cart.total_price * 100,
+    response = EXPRESS.setup_purchase(current_cart.total_price * 100,
       :ip => request.remote_ip,
       :return_url => new_order_url,
       :cancel_return_url => root_url,
+      :allow_note => true,
       :items => current_cart.cart_details
     )
-    redirect_to EXPRESS_GATEWAY.redirect_url_for(response.token)
+    redirect_to EXPRESS.redirect_url_for(response.token)
   end
 
   def new
