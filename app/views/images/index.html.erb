@@ -1,30 +1,24 @@
-<p><%= link_to "Add Images", new_product_image_path(@product), :class => 'btn btn-success btn-xs' %></p>
-<div class="row">
-    <% for image in @images %>
-      <div class="col-sm-4 col-lg-3 col-md-4">
-          <div class="thumbnail">
-              <span id="product_img"><%= link_to image_tag(image.image.url(:original), :height => 185, :width => 185, :id => "image_#{image.id}"), "#{image.image.url}", :title => "#{image.image_file_name}", :class => 'fancybox', :rel => "gallery1"  %></span>
-              <div class="ratings">
-                  <% if current_user %>
-                    <hr />
-                    <p>
-                      <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_product_image_path(@product, image) %> |
-                      <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, product_image_path(image.imageable,image), :method => :delete, :data => { :confirm => 'Are you sure?'} %>
-                    </p>
-                     <p class="pull-right" style="position: relative;top: -30px;"><%= link_to image_tag("rotate.jpeg"), "#", :class => "item-3", :id => "rotate_#{image.id}", :title => 'rotate' %></p>
-                  <% end %>
-              </div>
-          </div>
+<%= form_tag image_destroy_product_images_path(@product), :method => :get do %>
+  <h3>
+    Product Images
+    <div class="pull-right">
+      <div class="checkbox checkbox-danger checkbox-inline">
+        <input type="checkbox" id="selecctall" />
+        <label for="inlineCheckbox2"></label>
       </div>
-      <script>
-                  var value_<%= image.id %> = 0
-                  $("#rotate_<%= image.id %>").click(function(){
-                    value_<%= image.id %> +=90;
-                    $("#image_<%= image.id %>").rotate({ animateTo:value_<%= image.id %>})
-                  });
-                </script>
-    <% end %>
-</div>
+      <%= submit_tag "delete all", :class => "btn btn-xs btn-danger" %>
+      <%= link_to "Add Images", new_product_image_path(@product), :class => 'btn btn-success btn-xs' %>
+    </div>
+  </h3>
+  <hr />
+  <div id="product_images">
+    <%= render :partial => 'images' %>
+  </div>
+<% end %>
 <script>
   $(".fancybox").fancybox();
+
+  $("#selecctall").change(function(){
+    $(".check_all").prop('checked', $(this).prop("checked"));
+  });
 </script>

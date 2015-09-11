@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   resources :carts, :home, :categories, :banners, :orders, :rooms
 
   resources :products do
-    resources :images
+    resources :images do
+      collection do
+        get :image_destroy
+      end
+    end
     member do
       get :add_to_cart
     end

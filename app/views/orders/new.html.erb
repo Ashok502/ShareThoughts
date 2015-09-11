@@ -10,38 +10,41 @@
   <% else %>
   <table id="order-table">
     <tr>
-        <td><%= f.label :payment_type, :class => 'control-label' %></td>
-        <td><%= f.select :payment_type, options_for_select([["Select", ""],["Brian Tree", "brian_tree"],["Checkout", "checkout"],["Authorize","authorize"],["Stripe","stripe"],["HDFC", "hdfc"],["Payeezy","payeezy"]], :selected => f.object.payment_type),{}, :class => 'form-control' %></td>
+        <td><%= f.label :payment_type, "Payment Type:", :class => 'control-label' %></td>
+        <td><%= f.select :payment_type, options_for_select([["Select", ""],["Brian Tree", "brian_tree"],["Checkout", "checkout"],["Authorize","authorize"],["Stripe","stripe"],["HDFC", "hdfc"],["Payeezy","payeezy"]], :selected => f.object.payment_type),{}, :class => 'selectpicker form-control', 'data-style' => 'btn-warning' %></td>
     </tr>
     <tr>
-        <td><%= f.label :first_name, :class => 'control-label' %></td>
+        <td><%= f.label :first_name, "First Name:", :class => 'control-label' %></td>
         <td>
             <%= f.text_field :first_name, :class => 'form-control' %>
         </td>
-
-        <td><%= f.label :last_name, :class => 'control-label' %></td>
+</tr>
+    <tr>
+        <td><%= f.label :last_name, "Last Name:", :class => 'control-label' %></td>
         <td>
             <%= f.text_field :last_name, :class => 'form-control' %>
         </td>
     </tr>
     <tr>
-        <td><%= f.label :card_type, :class => 'control-label' %></td>
+        <td><%= f.label :card_type, "Card Type:", :class => 'control-label' %></td>
         <td>
-            <%= f.select :card_type, options_for_select([["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]], :selected => f.object.card_type),{}, :class => 'form-control' %>
+            <%= f.select :card_type, options_for_select([["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]], :selected => f.object.card_type),{}, :class => 'selectpicker form-control', 'data-style' => 'btn-warning' %>
         </td>
-
-        <td><%= f.label :card_number, :class => 'control-label' %></td>
+</tr>
+    <tr>
+        <td><%= f.label :card_number,"Card Number:", :class => 'control-label' %></td>
         <td>
             <%= f.text_field :card_number, :class => 'form-control' %>
         </td>
     </tr>
     <tr>
-        <td><%= f.label :card_expires_on, :class => 'control-label' %></td>
+        <td><%= f.label :card_expires_on,"Card Expires On:", :class => 'control-label' %></td>
         <td>
-            <%= f.date_select :card_expires_on, {:discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true, :order => [:month, :year]}, :id => 'cvv_date' %>
+            <%= f.date_select :card_expires_on, {:discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true, :order => [:month, :year]}, :id => 'cvv_date', :class => 'selectpicker', 'data-style' => 'btn-warning' %>
         </td>
-
-        <td><%= f.label :card_verification, :class => 'control-label' %></td>
+</tr>
+    <tr>
+        <td><%= f.label :card_verification, "Card Verification:", :class => 'control-label' %></td>
         <td>
             <%= f.text_field :card_verification, :style => 'width: 120px;', :class => 'form-control' %>
         </td>

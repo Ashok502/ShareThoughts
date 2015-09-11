@@ -36,7 +36,19 @@ class ImagesController < ApplicationController
   def destroy
     @product = Product.find(params[:product_id])
     @image = Image.find(params[:id])
+    @images = @product.images.all
     @image.destroy
+    respond_format
+  end
+
+  def image_destroy
+    @product = Product.find(params[:product_id])
+    if params[:image_ids].present?
+      @images = Image.find(params[:image_ids])
+      for image in @images
+        image.destroy
+      end
+    end
     redirect_to product_images_path(@product)
   end
 
