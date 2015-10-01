@@ -40,6 +40,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     arel (5.0.1.20140414130214)
+    av (0.9.0)
+      cocaine (~> 0.5.3)
     aws_cf_signer (0.1.3)
     bcrypt (3.1.10)
     braintree (2.43.0)
@@ -149,6 +151,9 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    paperclip-av-transcoder (0.6.4)
+      av (~> 0.9.0)
+      paperclip (>= 2.5.2)
     papercrop (0.2.0)
       jquery-rails
       paperclip (>= 3.4)
@@ -278,6 +283,7 @@ DEPENDENCIES
   omniauth
   opentok
   paperclip
+  paperclip-av-transcoder
   papercrop
   payuindia!
   pg

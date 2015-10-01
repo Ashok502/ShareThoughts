@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150910104147) do
+ActiveRecord::Schema.define(version: 20150928071428) do
 
   create_table "average_caches", force: true do |t|
     t.integer  "rater_id"
@@ -218,5 +218,16 @@ ActiveRecord::Schema.define(version: 20150910104147) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
+
+  create_table "videos", force: true do |t|
+    t.string   "video_file_name"
+    t.string   "video_content_type"
+    t.integer  "video_file_size"
+    t.datetime "video_updated_at"
+    t.string   "videoable_type"
+    t.integer  "videoable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

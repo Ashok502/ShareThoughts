@@ -24,6 +24,7 @@ gem 'cloudinary'
 gem 'ratyrate'
 gem 'private_pub'
 gem 'papercrop'
+gem 'paperclip-av-transcoder'
 gem "opentok"
 gem 'fancybox-rails'
 gem 'dropzonejs-rails'

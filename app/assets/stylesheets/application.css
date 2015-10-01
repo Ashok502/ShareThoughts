@@ -116,3 +116,10 @@ a.previous_page{
   text-align: center;
   width: 50px;
 }
+
+.video{
+    border:solid 1px #000000;
+    background-color:#FFFFFF;
+    left:23%;
+    top:11%;
+  }

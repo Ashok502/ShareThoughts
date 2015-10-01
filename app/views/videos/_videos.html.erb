@@ -1,0 +1,33 @@
+<div id="pagination">
+    <%= will_paginate @videos, :page_links => false, :param_name => 'video_page', :previous_label => "PREV", :next_label => "NEXT" %>
+</div>
+<div class="row">
+    <% for video in @videos %>
+      <div class="col-sm-4 col-lg-3 col-md-4">
+          <div class="thumbnail" style="width: 193px; padding: 3px;">
+              <span id="product_img"><%= video_tag video.video.url, :height => 185, :width => 185, :id => "video_#{video.id}", :class => 'video', :controls => true %></span>
+              <div class="ratings">
+                  <% if current_user %>
+                    <hr />
+                     <p>
+                       <div class="checkbox checkbox-danger checkbox-inline">
+                         <%= check_box_tag 'video_ids[]', video[:id], false,:class => 'check_all' %>
+                         <label for="checkbox6"></label>
+                       </div>|
+                      <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_product_video_path(@product, video) %> |
+                       <%= link_to image_tag("rotate.jpeg"), "#", :class => "item-3", :id => "rotate_#{video.id}", :title => 'rotate' %> |
+                      <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, product_video_path(video.videoable,video), :method => :delete, :data => { :confirm => 'Are you sure?'}, :remote => true %>
+                    </p>
+                  <% end %>
+              </div>
+          </div>
+      </div>
+      <script>
+                  var value_<%= video.id %> = 0
+                  $("#rotate_<%= video.id %>").click(function(){
+                    value_<%= video.id %> +=90;
+                    $("#video_<%= video.id %>").rotate({ animateTo:value_<%= video.id %>})
+                  });
+                </script>
+    <% end %>
+</div>
