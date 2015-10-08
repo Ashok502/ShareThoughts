@@ -1,17 +1,17 @@
 class VideosController < ApplicationController
   def index
     @product = Product.find(params[:product_id])
-    @videos = @product.videos.all
+    @videos = @product.share_videos.all
   end
 
   def new
     @product = Product.find(params[:product_id])
-    @video = @product.videos.new
+    @video = @product.share_videos.new
   end
 
   def create
     @product = Product.find(params[:product_id])
-    @video = @product.videos.new(new_params)
+    @video = @product.share_videos.new(new_params)
     if @video.save
       render json: { message: "success" }, :status => 200
     else
@@ -21,12 +21,12 @@ class VideosController < ApplicationController
 
   def edit
     @product = Product.find(params[:product_id])
-    @video = Video.find(params[:id])
+    @video = ShareVideo.find(params[:id])
   end
 
   def update
     @product = Product.find(params[:product_id])
-    @video = Video.find(params[:id])
+    @video = ShareVideo.find(params[:id])
     if @video.update_attributes(new_params)
       redirect_to product_videos_path(@product)
     end
@@ -34,8 +34,8 @@ class VideosController < ApplicationController
 
   def destroy
     @product = Product.find(params[:product_id])
-    @video = Video.find(params[:id])
-    @videos = @product.videos.all
+    @video = ShareVideo.find(params[:id])
+    @videos = @product.share_videos.all
     @video.destroy
     respond_format
   end
@@ -43,7 +43,7 @@ class VideosController < ApplicationController
   def video_destroy
     @product = Product.find(params[:product_id])
     if params[:video_ids].present?
-      @videos = Video.find(params[:video_ids])
+      @videos = ShareVideo.find(params[:video_ids])
       for video in @videos
         video.destroy
       end
@@ -54,6 +54,6 @@ class VideosController < ApplicationController
   private
 
     def new_params
-      params.require(:video).permit!
+      params.require(:share_video).permit!
     end
 end
