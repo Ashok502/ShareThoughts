@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     @products = Product.paginate :page => params[:product_page], :per_page => 6
-    @videos   = ShareVideo.paginate :page => params[:video_page], :per_page => 6
+    @videos   = Video.paginate :page => params[:video_page], :per_page => 6
     @banners = Banner.all
   end
 
