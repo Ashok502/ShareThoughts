@@ -34,13 +34,14 @@
   <div class="control-group">
       Image
       <%= f.fields_for :images do |builder| %>
-        <div class="controls">
-            <%= builder.file_field :image %> <%= builder.link_to_remove "<i class='fa fa-times'></i>".html_safe %>
-        </div>
+      <p>
+            <%= builder.file_field :image %>
+            <%= builder.link_to_remove "Remove".html_safe, :class => 'btn btn-danger btn-xs', :style => 'position: relative;left: 270px; top: -30px;' %>
+            </p>
       <% end %>
   </div>
   <div class="control-group">
-      <div class="controls"><%= f.link_to_add "Add <i class='fa fa-plus'></i>".html_safe, :images %></div>
+      <div class="controls"><%= f.link_to_add "Add+".html_safe, :images, :class => 'btn btn-success btn-xs', :style => 'position: relative;top: -20px;' %></div>
   </div>
 
 

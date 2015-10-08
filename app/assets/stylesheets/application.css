@@ -123,3 +123,9 @@ a.previous_page{
     left:23%;
     top:11%;
   }
+
+  input[type="file"]{
+    background-color: white;
+    border: 1px solid #008A8A;
+    padding: 5px;
+  }
