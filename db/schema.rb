@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150910104147) do
+ActiveRecord::Schema.define(version: 20150928071428) do
 
   create_table "average_caches", force: true do |t|
     t.integer  "rater_id"
@@ -216,10 +216,8 @@ ActiveRecord::Schema.define(version: 20150910104147) do
     t.string   "video_content_type"
     t.integer  "video_file_size"
     t.datetime "video_updated_at"
-    t.integer  "user_id"
-    t.string   "name"
-    t.text     "description"
-    t.decimal  "price",              precision: 10, scale: 0
+    t.string   "videoable_type"
+    t.integer  "videoable_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

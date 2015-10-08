@@ -14,6 +14,11 @@ Rails.application.routes.draw do
         get :image_destroy
       end
     end
+    resources :videos do
+      collection do
+        get :video_destroy
+      end
+    end
     member do
       get :add_to_cart
     end

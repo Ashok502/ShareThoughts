@@ -1,0 +1,24 @@
+<%= form_tag video_destroy_product_videos_path(@product), :method => :get do %>
+  <h3>
+    Product Videos
+    <div class="pull-right">
+      <div class="checkbox checkbox-danger checkbox-inline">
+        <input type="checkbox" id="selecctall" />
+        <label for="inlineCheckbox2"></label>
+      </div>
+      <%= submit_tag "delete all", :class => "btn btn-xs btn-danger" %>
+      <%= link_to "Add Videos", new_product_video_path(@product), :class => 'btn btn-success btn-xs' %>
+    </div>
+  </h3>
+  <hr />
+  <div id="product_videos">
+    <%= render :partial => 'videos' %>
+  </div>
+<% end %>
+<script>
+  $(".fancybox").fancybox();
+
+  $("#selecctall").change(function(){
+    $(".check_all").prop('checked', $(this).prop("checked"));
+  });
+</script>
