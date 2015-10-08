@@ -1,6 +1,6 @@
-class CreateShareVideos < ActiveRecord::Migration
+class CreateVideos < ActiveRecord::Migration
   def change
-    create_table :share_videos do |t|
+    create_table :videos do |t|
       t.attachment :video
       t.string :videoable_type
       t.integer :videoable_id
