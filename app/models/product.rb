@@ -3,7 +3,7 @@ class Product < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   has_many :images, :as => :imageable
-  has_many :videos, :as => :videoable
+  has_many :share_videos, :as => :videoable
   has_many :line_items
   accepts_nested_attributes_for :images, :allow_destroy => true, :reject_if => :all_blank
 
