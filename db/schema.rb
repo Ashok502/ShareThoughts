@@ -169,14 +169,6 @@ ActiveRecord::Schema.define(version: 20150910104147) do
 
   add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
 
-  create_table "rooms", force: true do |t|
-    t.string   "name"
-    t.string   "sessionId"
-    t.boolean  "public"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "email",                    default: "",     null: false
     t.string   "encrypted_password",       default: "",     null: false
@@ -218,5 +210,18 @@ ActiveRecord::Schema.define(version: 20150910104147) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
+
+  create_table "videos", force: true do |t|
+    t.string   "video_file_name"
+    t.string   "video_content_type"
+    t.integer  "video_file_size"
+    t.datetime "video_updated_at"
+    t.integer  "user_id"
+    t.string   "name"
+    t.text     "description"
+    t.decimal  "price",              precision: 10, scale: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
