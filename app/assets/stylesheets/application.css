@@ -93,28 +93,28 @@ a.previous_page{
 }
 
 #payment-form{
-  width: 110px;
+    width: 110px;
 }
 
 #payment-form input[type=submit]{
-  background-color: #d9534f;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  color: #fff;
-  font-size: 14px;
-  left: -115px;
-  line-height: 0.7;
-  padding: 6px 9px;
-  position: relative;
-  text-align: center;
-  top: 24px;
+    background-color: #d9534f;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    left: -115px;
+    line-height: 0.7;
+    padding: 6px 9px;
+    position: relative;
+    text-align: center;
+    top: 24px;
 }
 
 #line_item_quantity{
-  border: 1px solid lightblue;
-  border-radius: 4px;
-  text-align: center;
-  width: 50px;
+    border: 1px solid lightblue;
+    border-radius: 4px;
+    text-align: center;
+    width: 50px;
 }
 
 .video{
@@ -122,10 +122,10 @@ a.previous_page{
     background-color:#FFFFFF;
     left:23%;
     top:11%;
-  }
+}
 
-  input[type="file"]{
+input[type="file"]{
     background-color: white;
     border: 1px solid #008A8A;
     padding: 5px;
-  }
+}

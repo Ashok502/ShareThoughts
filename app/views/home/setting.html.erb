@@ -1,42 +1,42 @@
 <div class="page-header">
-    <h1>My Account</h1>
+  <h1>My Account</h1>
 </div>
 <div class="col-sm-8 col-md-8 col-lg-8">
-    <%= form_for @user, :url => update_setting_path(@user), :method => 'PUT' do |f| %>
-      <ul style="margin: 0">
-          <% @user.errors.full_messages.each_with_index do |msg, index| %>
-            <li style="color: red; line-height: 20px;list-style: none"><%= index+1 %>. <%= msg %></li>
-          <% end %>
-      </ul>
+  <%= form_for @user, :url => update_setting_path(@user), :method => 'PUT' do |f| %>
+    <ul style="margin: 0">
+      <% @user.errors.full_messages.each_with_index do |msg, index| %>
+        <li style="color: red; line-height: 20px;list-style: none"><%= index+1 %>. <%= msg %></li>
+      <% end %>
+    </ul>
 
-      <div class="control-group">
-          <%= f.label :username, :class => 'control-label' %>
-          <div class="controls">
-              <%= f.text_field :username, :class => 'form-control' %>
-          </div>
+    <div class="control-group">
+      <%= f.label :username, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :username, :class => 'form-control' %>
       </div>
+    </div>
 
-      <div class="control-group">
-          <%= f.label :avatar, :class => 'control-label' %>
-          <div class="controls">
-              <%= f.file_field :avatar %>
-          </div>
+    <div class="control-group">
+      <%= f.label :avatar, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :avatar %>
       </div>
+    </div>
 
-      <div class="control-group">
-          <%= f.label :cover_photo, :class => 'control-label' %>
-          <div class="controls">
-              <%= f.file_field :cover_photo %>
-          </div>
+    <div class="control-group">
+      <%= f.label :cover_photo, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :cover_photo %>
       </div>
+    </div>
 
-      <%= f.submit "Update", :class => 'btn btn-primary' %>
-    <% end %>
+    <%= f.submit "Update", :class => 'btn btn-primary' %>
+  <% end %>
 </div>
 <div class="col-sm-4 col-md-4 col-lg-4">
-    <div class="box-changepassword">
-        <div id='password'>
-            <%= render :partial => 'password' %>
-        </div>
+  <div class="box-changepassword">
+    <div id='password'>
+      <%= render :partial => 'password' %>
     </div>
+  </div>
 </div>

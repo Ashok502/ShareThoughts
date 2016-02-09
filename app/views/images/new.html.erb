@@ -1,27 +1,27 @@
 <h3>Upload Images
-<%= link_to "Product Images", product_images_path(@product), :class => 'btn btn-success btn-xs', :style => 'float: right;' %>
+  <%= link_to "Product Images", product_images_path(@product), :class => 'btn btn-success btn-xs', :style => 'float: right;' %>
 </h3>
 <hr />
 <%= form_for @image, :url => product_images_path(@product), :method => 'POST', html: { multipart: true, class: "dropzone"} do |f|  %>
-  <div class="fallback">
-    <%= f.file_field :image %><br>
-    <%= f.submit "Upload" %>
-  </div>
-<% end %>
-<br>
-<script>
-  $(document).ready(function(){
-    // disable auto discover
-    Dropzone.autoDiscover = true;
+    <div class="fallback">
+      <%= f.file_field :image %><br>
+      <%= f.submit "Upload" %>
+    </div>
+  <% end %>
+  <br>
+  <script>
+    $(document).ready(function() {
+      // disable auto discover
+      Dropzone.autoDiscover = true;
 
-    // grap our upload form by its id
-    $("#new_image").dropzone({
+      // grap our upload form by its id
+      $("#new_image").dropzone({
         // restrict image size to a maximum 1MB
         maxFilesize: 1,
         // changed the passed param to one accepted by
         // our rails app
         paramName: "image[image]",
         addRemoveLinks: true
+      });
     });
-  });
-</script>
+  </script>

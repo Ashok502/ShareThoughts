@@ -1,30 +1,30 @@
 <div class="row">
-    <% for image in @images %>
-      <div class="col-sm-4 col-lg-3 col-md-4">
-          <div class="thumbnail">
-              <span id="product_img"><%= link_to image_tag(image.image.url(:original), :height => 185, :width => 185, :id => "image_#{image.id}"), "#{image.image.url}", :title => "#{image.image_file_name}", :class => 'fancybox', :rel => "gallery1"  %></span>
-              <div class="ratings">
-                  <% if current_user %>
-                    <hr />
-                     <p>
-                       <div class="checkbox checkbox-danger checkbox-inline">
-                         <%= check_box_tag 'image_ids[]', image[:id], false,:class => 'check_all' %>
-                         <label for="checkbox6"></label>
-                       </div>|
-                      <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_product_image_path(@product, image) %> |
-                       <%= link_to image_tag("rotate.jpeg"), "#", :class => "item-3", :id => "rotate_#{image.id}", :title => 'rotate' %> |
-                      <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, product_image_path(image.imageable,image), :method => :delete, :data => { :confirm => 'Are you sure?'}, :remote => true %>
-                    </p>
-                  <% end %>
-              </div>
-          </div>
+  <% for image in @images %>
+    <div class="col-sm-4 col-lg-3 col-md-4">
+      <div class="thumbnail">
+        <span id="product_img"><%= link_to image_tag(image.image.url(:original), :height => 185, :width => 185, :id => "image_#{image.id}"), "#{image.image.url}", :title => "#{image.image_file_name}", :class => 'fancybox', :rel => "gallery1"  %></span>
+        <div class="ratings">
+          <% if current_user %>
+            <hr />
+            <p>
+            <div class="checkbox checkbox-danger checkbox-inline">
+              <%= check_box_tag 'image_ids[]', image[:id], false,:class => 'check_all' %>
+              <label for="checkbox6"></label>
+            </div>|
+            <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_product_image_path(image.imageable, image) %> |
+            <%= link_to image_tag("rotate.jpeg"), "#", :class => "item-3", :id => "rotate_#{image.id}", :title => 'rotate' %> |
+            <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, product_image_path(image.imageable,image), :method => :delete, :data => { :confirm => 'Are you sure?'}, :remote => true %>
+            </p>
+          <% end %>
+        </div>
       </div>
-      <script>
-                  var value_<%= image.id %> = 0
-                  $("#rotate_<%= image.id %>").click(function(){
-                    value_<%= image.id %> +=90;
-                    $("#image_<%= image.id %>").rotate({ animateTo:value_<%= image.id %>})
-                  });
-                </script>
-    <% end %>
+    </div>
+    <script>
+      var value_<%= image.id %> = 0
+      $("#rotate_<%= image.id %>").click(function() {
+        value_<%= image.id %> += 90;
+        $("#image_<%= image.id %>").rotate({animateTo: value_<%= image.id %>})
+      });
+    </script>
+  <% end %>
 </div>

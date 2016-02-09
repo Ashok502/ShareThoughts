@@ -1,30 +1,30 @@
 <ul class="bxslider">
-    <% for banner in @banners %>
-      <li>
-          <%= image_tag(banner.images.first.image.url(:original), height: 400, width: 1200, title: banner.name) %>
-      </li>
-    <% end %>
+  <% for banner in @banners %>
+    <li>
+      <%= image_tag(banner.images.first.image.url(:original), height: 400, width: 1200, title: banner.name) %>
+    </li>
+  <% end %>
 </ul>
 <div class="page-header">
-    <h3>Products</h3>
+  <h3>Products</h3>
 </div>
 <div id="products">
-    <%= render :partial => '/products/index' %>
+  <%= render :partial => '/products/index' %>
 </div>
 <hr />
 <div class="page-header">
-    <h3>Videos</h3>
+  <h3>Videos</h3>
 </div>
 <div id="videos">
-    <%= render :partial => '/videos/videos' %>
+  <%= render :partial => '/videos/videos' %>
 </div>
 <script>
   $('.bxslider').bxSlider({
-      captions: true,
-      auto: true,
-      autoHover: true,
-      pause: 5000,
-      controls: false,
-      captions: true
+    captions: true,
+    auto: true,
+    autoHover: true,
+    pause: 5000,
+    controls: false,
+    captions: true
   });
 </script>

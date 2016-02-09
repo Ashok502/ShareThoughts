@@ -1,24 +1,24 @@
 <div class="page-header">
-    <h3>Cart
-        <%= link_to "Continue Shopping", '/', :class => 'btn btn-xs btn-success', :style => 'float: right;' %>
-    </h3>
+  <h3>Cart
+    <%= link_to "Continue Shopping", '/', :class => 'btn btn-xs btn-success', :style => 'float: right;' %>
+  </h3>
 </div>
 <div id='total_cart'><%= render :partial => '/carts/total_cart' %></div>
 <% if current_cart.line_items.present? %>
-    <div style="float: right;position: relative;top: -35px;">
-        <% if current_user %>
-            <% payment_form_for_payu ENV['PKEY'],ENV['PSALT'],
-              :txnid => @cart.cart_id,
-              :amount => @cart.total_price,
-              :productinfo => "Share Thoughts Purchase",
-              :email => current_user.email,
-              :surl => "#{SITE}/payu_callback",
-              :furl => "#{SITE}/payu_callback",
-              :html => { :id => 'payment-form' } %> |
-        <% end %>
+  <div style="float: right;position: relative;top: -35px;">
+    <% if current_user %>
+      <% payment_form_for_payu ENV['PKEY'],ENV['PSALT'],
+        :txnid => @cart.cart_id,
+        :amount => @cart.total_price,
+        :productinfo => "Share Thoughts Purchase",
+        :email => current_user.email,
+        :surl => "#{SITE}/payu_callback",
+        :furl => "#{SITE}/payu_callback",
+        :html => { :id => 'payment-form' } %> |
+    <% end %>
 
-        <%= link_to "Buy Now", new_order_path, :class => 'btn btn-xs btn-success' %> |
+    <%= link_to "Buy Now", new_order_path, :class => 'btn btn-xs btn-success' %> |
 
-        <%= link_to "Pay via Paypal", pay_path, :class => 'btn btn-xs btn-warning' %>
-    </div>
+    <%= link_to "Pay via Paypal", pay_path, :class => 'btn btn-xs btn-warning' %>
+  </div>
 <% end %>

@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "widgets/new", type: :view do
   before(:each) do
     assign(:widget, Widget.new(
-      :name => "MyString"
-    ))
+        :name => "MyString"
+      ))
   end
 
   it "renders new widget form" do

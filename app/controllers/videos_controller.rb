@@ -53,7 +53,7 @@ class VideosController < ApplicationController
 
   private
 
-    def new_params
-      params.require(:video).permit!
-    end
+  def new_params
+    params.require(:video).permit!
+  end
 end

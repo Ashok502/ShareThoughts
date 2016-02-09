@@ -1,26 +1,26 @@
 <h3>Upload videos
-<%= link_to "Product videos", product_videos_path(@product), :class => 'btn btn-success btn-xs', :style => 'float: right;' %>
+  <%= link_to "Product videos", product_videos_path(@product), :class => 'btn btn-success btn-xs', :style => 'float: right;' %>
 </h3>
 <hr />
 <%= form_for @video, :url => product_videos_path(@product), :method => 'POST', html: { multipart: true, class: "dropzone"} do |f|  %>
-  <div class="fallback">
-    <%= f.file_field :video %><br>
-    <%= f.submit "Upload" %>
-  </div>
-<% end %>
-<br>
-<script>
-  $(document).ready(function(){
-    // disable auto discover
-    Dropzone.autoDiscover = true;
-    // grap our upload form by its id
-    $("#new_video").dropzone({
+    <div class="fallback">
+      <%= f.file_field :video %><br>
+      <%= f.submit "Upload" %>
+    </div>
+  <% end %>
+  <br>
+  <script>
+    $(document).ready(function() {
+      // disable auto discover
+      Dropzone.autoDiscover = true;
+      // grap our upload form by its id
+      $("#new_video").dropzone({
         // restrict video size to a maximum 1MB
         maxFilesize: 50,
         // changed the passed param to one accepted by
         // our rails app
         paramName: "video[video]",
         addRemoveLinks: true
+      });
     });
-  });
-</script>
+  </script>

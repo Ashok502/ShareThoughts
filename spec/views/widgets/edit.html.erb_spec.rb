@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "widgets/edit", type: :view do
   before(:each) do
     @widget = assign(:widget, Widget.create!(
-      :name => "MyString"
-    ))
+        :name => "MyString"
+      ))
   end
 
   it "renders the edit widget form" do
