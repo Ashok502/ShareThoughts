@@ -17,17 +17,5 @@ class User < ActiveRecord::Base
 
   has_attached_file :cover_photo, :styles => {:thumb => '90*90>', :large => '180*180>'}, :default_url => 'cover-theme.jpg'
   validates_attachment_content_type :cover_photo,
-    :content_type => [ 'image/jpeg','image/jpg', 'image/png', 'image/gif','image/bmp', 'image/x-png', 'image/pjpeg' ]
-
-  
-  after_create :create_default_conversation
-
-
-  private
-
-  # for demo purposes
-
-  def create_default_conversation
-    Conversation.create(sender_id: 1, recipient_id: self.id) unless self.id == 1
-  end
+    :content_type => [ 'image/jpeg','image/jpg', 'image/png', 'image/gif','image/bmp', 'image/x-png', 'image/pjpeg' ]  
 end

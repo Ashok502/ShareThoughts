@@ -12,11 +12,14 @@
  *
  *= require fancybox
  *= require_tree .
+ *= require rails_emoji_picker
  *= require_self
  *= require bootstrap
  *= require jquery.jcrop
  *= require dropzone/dropzone
  */
+
+.emoji-picker-container{display: block !important;}
 
 #pagination{
     float: right; position: relative;margin-top: -65px;
@@ -51,12 +54,6 @@ a.previous_page{
     border: 1px solid #DDDDDD;
     border-radius: 2px;
     padding: 3px 6px 4px;
-}
-
-#online-users{
-    position: relative;
-    top: 9px;
-    width: 380px;
 }
 
 #cart{
@@ -129,3 +126,7 @@ input[type="file"]{
     border: 1px solid #008A8A;
     padding: 5px;
 }
+
+.error-message li{color: red;list-style: none;}
+
+.control-group{padding: 0 0 10px 0;}

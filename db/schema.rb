@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 20151008110747) do
 
   create_table "carts", force: true do |t|
     t.date     "purchased_at"
+    t.string   "cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "cart_id"
   end
 
   create_table "categories", force: true do |t|
@@ -168,17 +168,6 @@ ActiveRecord::Schema.define(version: 20151008110747) do
   end
 
   add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
-
-  create_table "share_videos", force: true do |t|
-    t.string   "video_file_name"
-    t.string   "video_content_type"
-    t.integer  "video_file_size"
-    t.datetime "video_updated_at"
-    t.string   "videoable_type"
-    t.integer  "videoable_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "users", force: true do |t|
     t.string   "email",                    default: "",     null: false

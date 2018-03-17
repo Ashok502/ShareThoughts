@@ -20,7 +20,7 @@
   <br /><br /><br />
   <b>Product Details:</b>
   <br />
-  <p><%= @product.description.html_safe %></p>
+  <p><%= content_with_emoji(@product.description.html_safe) %></p>
 </section>
 <script>
   $('.bxslider').bxSlider({

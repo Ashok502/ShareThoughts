@@ -28,6 +28,8 @@ gem 'paperclip-av-transcoder'
 gem "opentok"
 gem 'fancybox-rails'
 gem 'dropzonejs-rails'
+gem 'paytm-merchant'
+gem 'rails_emoji_picker'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

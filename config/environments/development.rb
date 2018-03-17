@@ -81,6 +81,14 @@ Rails.application.configure do
     ::STRIPE = ActiveMerchant::Billing::StripeGateway.new(stripe)
   end
 
+  Paytm.config do |paytm|
+  # paytm.api_base_uri = 'Some Base URI' # Default is staging api URI fpr paytm
+    paytm.merchant_guid = 'Paytm Merchant Guid'
+    paytm.aes_key = 'Paytm AES Key'
+    paytm.sales_wallet_id = 'Paytm Sales Wallet Id'
+  end
+
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

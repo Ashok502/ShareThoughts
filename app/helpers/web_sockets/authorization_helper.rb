@@ -1,0 +1,2 @@
+module WebSockets::AuthorizationHelper
+end

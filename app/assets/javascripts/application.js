@@ -19,6 +19,7 @@
 //= require jquery.jcrop
 //= require papercrop
 //= require dropzone
+//= require rails_emoji_picker
 //= require_tree .
 
 $(function() {
@@ -43,3 +44,4 @@ $(document).ready(function() {
 });
 
 $(".selectpicker").selectpicker();
+//= require websocket_rails/main
