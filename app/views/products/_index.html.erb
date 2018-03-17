@@ -11,6 +11,8 @@
         <h4 class="pull-right"><%= number_to_currency(product.price) %></h4>
         <h4><%= link_to product.title, product_path(product) %>
         </h4>        
+        <%= (current_user && product.user_id != current_user.id) ? (link_to "<span class='fa fa-thumbs-up'></span>".html_safe, "#", class: 'pull-left') : "" %>
+        <%= (current_user && product.user_id != current_user.id) ? (link_to "<span class='fa fa-comments'></span>".html_safe, "#", class: "start-conversation pull-right", "data-sid" => current_user.id, "data-rip" => product.user.id) : "" %>
       </div>
       <div class="ratings">
         <p class="pull-right"><%= product.quantity != 0 ? (link_to "Add to Cart", add_to_cart_product_path(product), :remote => true, :class => 'btn btn-success btn-xs') : (link_to "Sold Out", "", :class => 'btn btn-danger btn-xs') %> </p>

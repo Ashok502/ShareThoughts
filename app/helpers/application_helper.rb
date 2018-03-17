@@ -5,12 +5,7 @@ module ApplicationHelper
     end
   end
 
-  def conversation_interlocutor(conversation)
-    conversation.recipient == current_user ? conversation.sender : conversation.recipient
-  end
-
   def self_or_other(message)
-    puts message.user == current_user
     message.user == current_user ? "self" : "other"    
   end
 

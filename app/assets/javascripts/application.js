@@ -44,4 +44,3 @@ $(document).ready(function() {
 });
 
 $(".selectpicker").selectpicker();
-//= require websocket_rails/main
