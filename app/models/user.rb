@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :sent_messages, :class_name => 'Message', :foreign_key => :user_id, :dependent => :destroy
   validates :username, :uniqueness => true, :presence => true
   has_many :conversations, :foreign_key => :sender_id
-  
+
   has_attached_file :avatar, :styles => {:thumb => '90*90>', :large => '180*180>'}, :default_url => 'avatar.png'
   validates_attachment_content_type :avatar,
     :content_type => [ 'image/jpeg','image/jpg', 'image/png', 'image/gif','image/bmp', 'image/x-png', 'image/pjpeg' ]
@@ -18,4 +18,6 @@ class User < ActiveRecord::Base
   has_attached_file :cover_photo, :styles => {:thumb => '90*90>', :large => '180*180>'}, :default_url => 'cover-theme.jpg'
   validates_attachment_content_type :cover_photo,
     :content_type => [ 'image/jpeg','image/jpg', 'image/png', 'image/gif','image/bmp', 'image/x-png', 'image/pjpeg' ]  
-end
+
+  
+  end

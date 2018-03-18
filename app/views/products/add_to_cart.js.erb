@@ -1,2 +1,2 @@
-$("#items_count").html(<%= current_cart.line_items.count %>);
+$("#items_count").html(<%= current_cart.line_items.count %>).css("color", "white");
 $("#cart").html('<%= escape_javascript render :partial => '/layouts/cart' %>');

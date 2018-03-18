@@ -2,7 +2,7 @@ class CartsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   def index
     @cart = current_cart
-    @items = @cart.line_items
+    @items = @cart.line_items    
   end
   def destroy
     @item = LineItem.find(params[:id])

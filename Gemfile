@@ -30,6 +30,7 @@ gem 'fancybox-rails'
 gem 'dropzonejs-rails'
 gem 'paytm-merchant'
 gem 'rails_emoji_picker'
+gem 'aws-sdk', '< 2.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

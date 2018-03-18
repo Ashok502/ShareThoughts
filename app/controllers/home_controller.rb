@@ -22,7 +22,7 @@ class HomeController < ApplicationController
   end
 
   def update_setting
-    @user = User.find(params[:id])
+    @user = User.find(params[:id])    
     if @user.update_attributes(new_params)
       flash[:success] = "Successfully updated the user details"
       redirect_to setting_path

@@ -29,6 +29,17 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true
 
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_host_name => 's3.us-west-2.amazonaws.com',
+    :s3_credentials => {
+      access_key_id: ENV['AWS_KEY_ID'],
+      secret_access_key: ENV['AWS_SECRET_KEY']
+    },
+    :preserve_files => true,
+    :bucket => ENV['AWS_BUCKET']
+  }
+
   # Generate digests for assets URLs.
   config.assets.digest = true
 
