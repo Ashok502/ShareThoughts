@@ -1,27 +1,42 @@
 <section class="col-sm-9 col-md-9 col-lg-9 col-xs-12">
   <h1><%= @product.title.html_safe %></h1>
   <div class="ccrow">
-    <div class="col-sm-8 col-md-8 col-lg-8" style="height: 438px;">
-      <div class="leftColumn-flowers" style="height: 438px;">
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <div class="leftColumn-flowers">
         <ul class='bxslider'>
           <% for image in @product.images %>
-            <li><%= link_to image_tag(image.image.url(:original),:width => 519, :height => 436, :style => 'border-radius: 3px;'), "#{image.image.url}", :title => "#{image.image_file_name}", :class => 'fancybox', :rel => "gallery1" %></li>
+          <li><%= link_to image_tag(image.image.url(:original), :style => 'border-radius: 3px;'), "#{image.image.url}", :title => "#{image.image_file_name}", :class => 'fancybox', :rel => "gallery1" %></li>
           <% end %>
         </ul>
       </div>
     </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-12">
-
+    <div class="col-sm-8 col-md-8 col-lg-8 col-xs-12">
       <div>
         <p>Price: <%= number_to_currency(@product.price) %></p>
       </div>
     </div>
   </div>
-  <br /><br /><br />
   <b>Product Details:</b>
   <br />
-  <p><%= content_with_emoji(@product.description.html_safe) %></p>
+  <p><%= content_with_emoji(@product.description.html_safe) %></p>   
 </section>
+<div class="col-md-12">
+  <%= form_for(:review, url: product_reviews_path(@product), remote: true) do |f| %>
+  <div class="control-group">
+    <%= f.label :comment, :class => 'control-label' %>
+    <div class="controls">
+    <%= f.text_field :comment, :class => 'form-control' %>
+    </div><br />
+    <%= f.submit "Comment", :class => 'btn btn-primary' %>
+  </div>
+  <% end %> 
+  <div class="page-header">
+    <h1><small class="pull-right"><%= @reviews.count %> comments</small> Comments </h1>
+  </div> 
+  <div class="comments-list">
+    <%= render :partial => "/reviews/comment" %>
+  </div>
+</div>
 <script>
   $('.bxslider').bxSlider({
     infiniteLoop: true,

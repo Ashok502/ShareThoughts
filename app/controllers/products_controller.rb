@@ -9,7 +9,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    respond_with(@product)
+    @product = Product.find(params[:id])
+    @review = @product.reviews.new
+    @reviews = @product.reviews
   end
 
   def new

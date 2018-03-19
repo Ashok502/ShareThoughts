@@ -22,7 +22,10 @@
 .emoji-picker-container{display: block !important;}
 
 #pagination{
-    float: right; position: relative;margin-top: -65px;
+    float: right;
+    position: relative;
+    margin-top: -73px;
+    margin-right: 100px;
 }
 
 a.next_page{

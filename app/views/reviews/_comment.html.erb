@@ -1,0 +1,14 @@
+<%if @reviews.present? %>
+  <% for review in @reviews %>
+    <div class="media">
+	    <p class="pull-right"><small>5 days ago</small></p>
+	    <a class="media-left" href="#">
+		    <%= image_tag(review.user.avatar.url(:thumb)) %>		
+	    </a>
+	    <div class="media-body">
+		    <h4 class="media-heading user_name"><%= review.user.username %></h4>
+		    <%= review.comment %>
+	    </div>
+    </div>
+  <% end %>
+<% end %>

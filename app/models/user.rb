@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :sent_messages, :class_name => 'Message', :foreign_key => :user_id, :dependent => :destroy
   validates :username, :uniqueness => true, :presence => true
   has_many :conversations, :foreign_key => :sender_id
+  has_many :reviews, :dependent => :destroy
 
   has_attached_file :avatar, :styles => {:thumb => '90*90>', :large => '180*180>'}, :default_url => 'avatar.png'
   validates_attachment_content_type :avatar,

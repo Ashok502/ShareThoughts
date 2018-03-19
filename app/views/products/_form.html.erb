@@ -1,5 +1,5 @@
 <%= nested_form_for @product, :html => { :class => "form-horizontal product" } do |f| %>
-
+<div class="col-md-5">
   <%= render :partial => '/layouts/error_messages', :locals => {:resource => @product} %>
 
   <div class="control-group">
@@ -27,16 +27,16 @@
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls emoji-picker-container">
-      <%= f.text_area :description, :class => 'form-control', data: {emojiable: true} %>
+      <%= f.text_area :description, cols: 50, rows: 3, :class => 'form-control', data: {emojiable: true} %>
     </div>
     <%= error_span(@product[:description]) %>
   </div>
   <div class="control-group col-md-9">
     Image
     <%= f.fields_for :images do |builder| %>      
-      <%= builder.file_field :image %>
-      <br>
-      <%= builder.link_to_remove "Remove".html_safe, :class => 'btn btn-danger btn-xs pull-right', style: 'margin-top: -45px;' %>      
+    <%= builder.file_field :image %>
+    <br>
+    <%= builder.link_to_remove "Remove".html_safe, :class => 'btn btn-danger btn-xs pull-right', style: 'margin-top: -45px;' %>      
     <% end %>
   </div>
   <div class="control-group col-md-9">
@@ -46,4 +46,5 @@
     <%= f.submit "Save", :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")), products_path, :class => 'btn btn-default' %>
   </div>
+</div>
 <% end %>

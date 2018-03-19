@@ -14,6 +14,7 @@ Rails.application.routes.draw do
         get :image_destroy
       end
     end
+    resources :reviews
     resources :videos do
       collection do
         get :video_destroy

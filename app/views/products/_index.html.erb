@@ -6,7 +6,7 @@
   <% for product in @products %>
   <div class="col-sm-4 col-lg-4 col-md-4">
     <div class="thumbnail">
-      <span id="product_img"><%= link_to image_tag(product.images.first.image.url(:original), :height => 200), product_path(product) %></span>
+      <span id="product_img"><%= link_to image_tag(product.images.first.image.url(:original)), product_path(product) %></span>
       <div class="caption">
         <h4 class="pull-right"><%= number_to_currency(product.price) %></h4>
         <h4><%= link_to product.title, product_path(product) %>
